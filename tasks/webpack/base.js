@@ -31,10 +31,21 @@ export default {
             presets: ['es2015']
           }
         }]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {}
+          // other vue-loader options go here
+        }
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.vue', '.js', '.jsx'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   }
 };

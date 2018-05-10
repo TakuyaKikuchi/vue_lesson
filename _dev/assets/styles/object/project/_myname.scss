@@ -1,0 +1,47 @@
+.p-myname {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  &__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+  }
+  &__parts {
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: left center;
+    height: 126px;
+    &.is-firstname {
+      width: 115px;
+      background-image: url("/assets/images/myname/KIKUCHI.png");
+    }
+    &.is-lastname {
+      width: 108px;
+      background-image: url("/assets/images/myname/TAKUYA.png");
+    }
+  }
+  &__start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 4px solid #555;
+  }
+}

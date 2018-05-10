@@ -1,5 +1,5 @@
 {
-  "name": "vitarity",
+  "name": "vue_lesson",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -38,7 +38,10 @@
     "gulp-uglify": "3.0.0",
     "gulp-watch": "4.3.11",
     "path": "^0.12.7",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
     "run-sequence": "^2.2.0",
+    "vue-loader": "^14.2.2",
     "webpack": "3.0.0",
     "webpack-notifier": "^1.5.0",
     "webpack-stream": "3.2.0"

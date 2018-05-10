@@ -1,0 +1,17 @@
+extend /_inc/layout/_base.pug
+
+block vars
+  - title = 'testTITLE';
+  - description = 'testDESCRIPTION';
+  - keywords = 'testKEYWORDS';
+  - ogUrl = '';
+  - ogType = '';
+  - ogImage = '';
+
+block contents
+    section.c-section
+        .c-section__inner
+            .c-section__contents
+                .p-myname(id="method-myname")
+                    myname-tag
+                    .p-myname__start.js-myname-button(@click='doing')
