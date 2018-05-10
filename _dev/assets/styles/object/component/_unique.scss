@@ -1,0 +1,101 @@
+.c-privacyInquiry {
+  border: 1px solid #333;
+  @include pc {
+    padding: 30px 16px 30px 26px;
+    border-radius: 8px;
+  }
+  @include sp{
+    @include vw(padding-right, 54);
+    @include vw(padding-left, 54);
+    @include vw(padding-top, 40);
+    @include vw(padding-bottom, 40);
+    @include vw(border-radius, 8);
+  }
+  &__block {
+    @include pc{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__box {
+    @include pc{
+      display: flex;
+      width: 330px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      line-height: 1.2;
+    }
+    &:nth-child(2n) {
+      @include pc{
+        width: 390px;
+        border-left: 1px solid #333;
+        padding-left: 20px;
+      }
+    }
+    &:nth-child(2n - 1) {
+      @include sp{
+        @include vw(margin-bottom, 20);
+      }
+    }
+  }
+  &__text {
+    display: block;
+    @include pc {
+      line-height: 2.6;
+      padding-right: 15px;
+    }
+    &--primary {
+      display: inline-block;
+      text-decoration: none;
+
+      @include pc {
+        font-size: 26px;
+        pointer-events: none;
+      }
+      @include sp {
+        @include font-vw(48);
+        line-height: 1.6;
+      }
+
+      &.r-freedial {
+        background-image: url(/assets/img/common/icon-freedial-01.png);
+        background-repeat: no-repeat;
+        background-position-x: left;
+
+        @include pc {
+          padding-left: 36px;
+          background-position-y: 7px;
+          background-size: 29px 19px;
+        }
+
+        @include sp {
+          @include vw(padding-left, 74);
+          @include vw(background-position-y, 23);
+          @include vw(background-size, 57, 37);
+        }
+      }
+    }
+    &--notice {
+      @include pc{
+        display: inline-block;
+        font-size: 12px;
+      }
+      @include sp{
+        @include font-vw(22);
+      }
+    }
+  }
+  &__notice {
+    @include pc{
+      @include font-margin-top(12,42,20);
+    }
+    @include sp{
+      @include font-margin-top(22,40,40);
+    }
+    &.r-type02 {
+      @include pc{
+        @include font-margin-top(12,42,40);
+      }
+    }
+  }
+}

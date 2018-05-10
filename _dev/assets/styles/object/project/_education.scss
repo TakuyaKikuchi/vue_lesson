@@ -1,0 +1,2092 @@
+// ----------------------------------------------
+//  Education（食育）
+// ----------------------------------------------
+
+// 食育トップ
+// TODO：ちょっとコンポーネント化は精査が必要そうなので、
+//       カテゴリのトップという枠で一旦プロジェクトで作成
+//       全体的にリファクタ必要
+.p-education-section {
+  border-top: 1px solid #c7c7c7;
+
+  @include pc {
+    margin-top: 95px;
+    padding-top: 60px;
+  }
+
+  @include sp {
+    @include vw(margin-top, 110);
+    @include vw(padding-top, 90);
+  }
+
+  &.r-main-visual {
+    position: relative;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+
+    .p-education-hdg--lv3 {
+      @include pc {
+        margin-top: 60px;
+      }
+
+      @include sp {
+        @include vw(margin-top, 108)
+      }
+    }
+  }
+}
+
+.p-education-section__block {
+  @include pc {
+    margin-top: 40px;
+  }
+
+  @include sp {
+    @include vw(margin-top, 60);
+  }
+}
+
+.p-education-hdg--lv2 {
+  position: relative;
+
+  // TODO：カラー変数にする
+  color: #e4002b;
+
+  @include pc {
+    margin-top: 58px;
+    padding-bottom: 23px;
+  }
+
+  @include sp {
+    @include vw(margin-top, 80);
+    @include vw(padding-bottom, 45);
+  }
+
+  .r-en {
+    @include pc {
+      line-height: 2.177;
+      font-size: 14px;
+    }
+
+    @include sp {
+      line-height: 1.524;
+      @include vw(font-size, 20);
+    }
+  }
+
+  .r-jp {
+    line-height: 1;
+
+    @include pc {
+      font-size: 32px;
+    }
+
+    @include sp {
+      display: inline-block;
+      @include vw(margin-top, 18);
+      @include vw(font-size, 60);
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    // TODO：カラー変数にする
+    background-color: #e4002b;
+
+    @include pc {
+      width: 32px;
+      height: 2px;
+    }
+
+    @include sp {
+      @include vw(width, 46);
+      @include vw(height, 4);
+    }
+  }
+}
+
+.p-education__copy {
+  @include pc {
+    margin-top: 18px;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  @include sp {
+    line-height: 1.728;
+    @include vw(margin-top, 45);
+    @include vw(font-size, 30);
+  }
+}
+
+.p-education__main-visual {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, 0);
+
+  @include pc {
+    top: 137px;
+    margin-left: 375px;
+  }
+
+  @include sp {
+    @include vw(top, 166);
+    @include vw(width, 636);
+    @include vw(margin-left, 270);
+  }
+
+  &.r-csr {
+    @include pc {
+      top: 0;
+      margin-left: 400px;
+    }
+
+    @include sp {
+      @include vw(top, 180);
+      @include vw(width, 774);
+      @include vw(margin-left, 222);
+    }
+  }
+}
+
+.p-education-hdg--lv3 {
+  @include pc {
+    line-height: 1.667;
+    font-size: 24px;
+  }
+
+  @include sp {
+    line-height: 1.522;
+    @include vw(font-size, 46)
+  }
+}
+
+.p-education-hdg--lv4 {
+  @include pc {
+    line-height: 1.667;
+    font-size: 18px;
+  }
+
+  @include sp {
+    line-height: 1.53;
+    @include vw(font-size, 34);
+  }
+}
+
+.p-education-note {
+  @include pc {
+    font-size: 12px;
+    line-height: 2.33;
+  }
+  @include sp {
+    @include vw(font-size, 22);
+    @include vw(line-height, 44);
+  }
+}
+
+//TODO 野村リファクタリング
+//seniorの下層 サブ見出し
+.p-education-sub-hdg {
+  display: block;
+  @include pc {
+    font-size: 18px;
+    line-height: 2.22;
+  }
+
+  @include sp {
+    @include vw(font-size, 30);
+    line-height: 1.6;
+  }
+}
+
+.p-education-panel__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    position: relative;
+    z-index: 1;
+
+    @include pc {
+      width: calc((100% - 24px) / 2);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      @include vw(margin-top, 38);
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__item__link {
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    @include pc {
+      &:hover,
+      &:active,
+      &:focus {
+        .p-education-panel__list__item__img {
+          @include pc {
+            transform: scale(1.15) translate(-1%);
+          }
+        }
+      }
+    }
+  }
+
+  &__item__title {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    line-height: 1.873;
+    transform: translate(0, -50%);
+
+    @include pc {
+      left: 42px;
+      font-size: 18px;
+    }
+
+    @include sp {
+      @include vw(left, 30);
+      @include vw(font-size, 30);
+    }
+
+    .l-main.r-type02 & {
+      @include pc {
+        left: 28px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__item__img {
+    width: 100%;
+    height: auto;
+
+    @include pc {
+      transition: transform .4s ease;
+    }
+  }
+
+  &__item__txt {
+    @include pc {
+      margin-top: 10px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 16);
+    }
+  }
+}
+
+.p-education__external-icon {
+  position: relative;
+  display: inline-block;
+
+  @include pc {
+    width: 11px;
+    height: 11px;
+    margin-left: 5px;
+  }
+
+  @include sp {
+    @include vw(width, 20);
+    @include vw(height, 20);
+    @include vw(margin-left, 4);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+
+    @include pc {
+      width: 8px;
+      height: 8px;
+    }
+
+    @include sp {
+      @include vw(width, 12);
+      @include vw(height, 12);
+    }
+  }
+
+  &::before {
+    border: 1px solid #333;
+
+    @include pc {
+      bottom: 3px;
+      left: 3px;
+    }
+
+    @include sp {
+      @include vw(bottom, 4);
+      @include vw(left, 4);
+    }
+  }
+
+  &::after {
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+  }
+}
+
+
+// TODO： リファクタ後に消す
+.p-education-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 0;
+  border-top: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+
+  &__item {
+    @include pc {
+      width: calc((100% - 35px) / 2);
+      margin-right: 35px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(margin-top, 60);
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__item__link {
+    display: block;
+    overflow: hidden;
+
+    @include pc {
+      transition: opacity .25s ease;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      @include pc {
+        opacity: .6;
+        text-decoration: none;
+      }
+    }
+
+    &[target='_blank'] {
+      .p-education-card-list__item__ttl {
+        position: relative;
+
+        @include pc {
+          padding-right: 20px;
+        }
+
+        @include sp {
+          @include vw(padding-right, 25);
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+
+          @include pc {
+            width: 8px;
+            height: 8px;
+          }
+
+          @include sp {
+            @include vw(width, 14);
+            @include vw(height, 14);
+          }
+        }
+
+        &::before {
+          right: 0;
+          border: 1px solid #333;
+
+          @include pc {
+            margin-top: -2px;
+          }
+
+          @include sp {
+            @include vw(margin-top, -5);
+          }
+        }
+
+        &::after {
+          border-bottom: 1px solid #333;
+          border-left: 1px solid #333;
+
+          @include pc {
+            right: 3px;
+            margin-top: 1px;
+          }
+
+          @include sp {
+            @include vw(right, 4);
+            @include vw(margin-top, 1);
+          }
+        }
+      }
+    }
+  }
+
+  &__item__img {
+    float: left;
+    clear: left;
+
+    @include pc {
+      width: 133px;
+      height: 133px;
+    }
+
+    @include sp {
+      @include vw(width, 220);
+      @include vw(height, 220);
+    }
+  }
+
+  &__item__content {
+    @include pc {
+      padding-left: 162px;
+    }
+
+    @include sp {
+      @include vw(padding-left, 248);
+    }
+  }
+
+  &__item__ttl {
+    display: inline-block;
+    line-height: 1.5;
+
+    @include pc {
+      font-size: 18px;
+    }
+
+    @include sp {
+      @include vw(font-size, 30);
+    }
+  }
+
+  &__item__txt {
+    @include pc {
+      margin-top: 10px;
+    }
+    @include sp {
+      @include vw(margin-top, 20);
+      line-height: 1.6;
+    }
+  }
+}
+
+// toggle list
+// TODO：componentに昇格させるか否か？
+.p-education-toggle-list {
+  &__item {
+    margin-top: 1px;
+
+    @include pc {
+      cursor: pointer;
+    }
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+  }
+
+  &__item__ttl {
+    position: relative;
+    background-color: #f2f2f2;
+
+    @include pc {
+      padding: 15px 60px 15px 20px;
+      line-height: 1.571;
+      font-size: 14px;
+    }
+
+    @include sp {
+      @include vw(padding-top, 38);
+      @include vw(padding-right, 80);
+      @include vw(padding-bottom, 38);
+      @include vw(padding-left, 40);
+      line-height: 1.172;
+      @include vw(font-size, 26);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      background-color: #e4002b;
+
+      @include pc {
+        right: 20px;
+        width: 11px;
+        height: 1px;
+      }
+
+      @include sp {
+        @include vw(right, 40);
+        @include vw(width, 16);
+        @include vw(height, 2);
+      }
+    }
+
+    &::before {
+      transform: translate(-50%, 0);
+    }
+
+    &::after {
+      transform: translate(-50%, 0) rotate(90deg);
+    }
+  }
+
+  &__item__ttl__sub {
+    display: block;
+  }
+
+  &__item__content {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+  }
+
+  &__item__content__inner {
+    padding: 30px 0 39px;
+  }
+
+  [aria-expanded="true"] {
+    &::after {
+      display: none;
+    }
+  }
+
+  [aria-expanded="true"] + .p-education-toggle-list__item__content {
+    height: auto;
+    opacity: 1;
+    transition: opacity .3s ease;
+  }
+}
+
+
+
+// TODO: p-education-modal ネーミング再考したい
+.p-education-modal {
+  &[aria-hidden="false"] {
+    @include pc{
+      overflow-y: scroll;
+      width: 900px;
+      // height: 80%;
+      max-height: 600px;
+      -ms-overflow-style: none;
+    }
+    @include sp{
+      @include wd-vw(670);
+    }
+    &::-webkit-scrollbar{
+      @include pc{
+        display:none;
+      }
+    }
+  }
+}
+
+.p-education-modal-detail {
+  background: #fff;
+  @include pc{
+    padding: 1px 60px 60px;
+  }
+  @include sp {
+    @include padding-vw(1,60,60,60);
+  }
+  .c-sec {
+    &:first-of-type {
+      @include pc{
+        margin-top: 60px;
+      }
+    }
+  }
+}
+
+.p-education-modal-detail-list {
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    @include pc {
+      width: 330px;
+      margin-top: 20px;
+    }
+    @include sp {
+      @include vw(margin-top, 30);
+    }
+    &:nth-child(1) {
+      @include sp {
+        margin-top: 0;
+      }
+    }
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include pc {
+        margin-top: 0;
+      }
+    }
+    img {
+      @include pc{
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+// modal-list element
+// TODO：componentに昇格させるか否か？
+// TODO to 野村 後でリファクタリング
+// c-panel-list 引用
+.p-education-modal-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    position: relative;
+    z-index: 1;
+    @include pc {
+      width: calc((100% - 24px) / 2);
+      margin-top: 40px;
+      margin-right: 24px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      &:nth-of-type(n + 2) {
+        @include vw(margin-top, 80);
+      }
+    }
+  }
+
+  &__item__link {
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid #ededed;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    @include pc {
+      transition: opacity .2s;
+      &:hover,
+      &:active,
+      &:focus {
+        @include pc {
+          opacity: .7;
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+    }
+
+    &::before {
+      background-color: #e40015;
+
+      @include pc {
+        width: 15px;
+        height: 1px;
+        bottom: 38px;
+        right: 32px;
+      }
+
+      @include sp {
+        @include vw(bottom, 67);
+        @include vw(right, 54);
+        @include vw(width, 30);
+        height: 1px;
+      }
+    }
+
+    &::after {
+      background-color: #e40015;
+
+      @include pc {
+        width: 1px;
+        height: 15px;
+        bottom: 31px;
+        right: 39px;
+      }
+
+      @include sp {
+        @include vw(bottom, 53);
+        @include vw(right, 68);
+        width: 1px;
+        @include vw(height, 30);
+      }
+    }
+  }
+
+  &__item__link__inner {
+    display: block;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      border: 1px solid #e40015;
+      border-radius: 50%;
+
+      @include pc {
+        width: 37px;
+        height: 37px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      @include sp {
+        @include vw(bottom, 30);
+        @include vw(right, 30);
+        @include vw(width, 74);
+        @include vw(height, 74);
+      }
+    }
+  }
+
+  &__item__title {
+    position: absolute;
+    z-index: 1;
+
+    @include pc {
+      font-size: 18px;
+    }
+  }
+
+  &__item__img {
+    width: 100%;
+    height: auto;
+
+    @include pc {
+      transition: transform .4s ease;
+    }
+  }
+
+  &__item__txt {
+    color: #333;
+    text-align: center;
+    @include pc {
+      font-size: 16px;
+      line-height: 1.25;
+      margin-top: 20px;
+    }
+
+    @include sp {
+      @include font-margin-top(30, 52, 40);
+    }
+  }
+}
+
+// .p-education-modal-list 片側画像、片側にテキストの2カラムエレメント
+// TODO: 野村リファクタリング
+.p-education-modal-list.r-type02 {
+  .p-education-modal-list__item {
+    .p-education-modal-list__item__txt {
+      margin-top: 0;
+      text-align: left;
+      @include pc {
+        font-size: 14px;
+        line-height: 2;
+      }
+      @include sp {
+        @include vw(font-size, 26);
+        @include vw(line-height, 48);
+      }
+    }
+  }
+}
+
+
+// Campaign heading elememt
+// TODO to 野村 後でリファクタリング
+// /education/cooking で使用しているキャンペーン応募終了告知のエレメント
+.p-education-campaign-hdg {
+  text-align: center;
+  @include pc {
+    line-height: 1.66;
+    font-size: 18px;
+  }
+  @include sp {
+    @include vw(font-size, 34);
+  }
+}
+
+// グレーボーダーエリア（お問い合わせなど）
+// TODO：componentに昇格させるか否か？
+.p-education-utility-area {
+  border: 1px solid #cacaca;
+
+  .p-education-utility-area__content__label {
+    display: inline-block;
+    text-align: center;
+    background-color: #ddd;
+
+    @include pc {
+      width: 80px;
+      height: 24px;
+      margin-right: 5px;
+      line-height: 24px;
+      font-size: 12px;
+    }
+
+    @include sp {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include vw(width, 160);
+      @include vw(heigth, 40);
+      @include vw(line-height, 40);
+      @include vw(font-size, 22);
+    }
+  }
+}
+
+.p-education-utility-area.r-type01 {
+  @include pc {
+    padding: 24px 40px 40px;
+  }
+
+  @include sp {
+    @include vw(padding-top, 34);
+    @include vw(padding-right, 40);
+    @include vw(padding-bottom, 32);
+    @include vw(padding-left, 40);
+  }
+
+  .p-education-utility-area__note {
+    @include pc {
+      font-size: 11px;
+    }
+
+    @include sp {
+      @include vw(font-size, 20);
+    }
+  }
+
+  .p-education-utility-area__ttl {
+    @include pc {
+      line-height: 1.5;
+      font-size: 18px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 8);
+      @include vw(font-size, 34);
+    }
+  }
+
+  .p-education-utility-area__annotation {
+    @include pc {
+      font-size: 16px;
+    }
+
+    @include sp {
+      display: inline-block;
+      @include vw(margin-top, 18);
+      @include vw(font-size, 26);
+    }
+  }
+
+  .p-education-utility-area__content {
+    @include pc {
+      margin-top: 18px;
+    }
+
+    @include sp {
+      position: relative;
+      @include vw(margin-top, 12);
+      @include vw(padding-left, 178);
+      line-height: 1.392;
+      @include vw(font-size, 26);
+    }
+
+    &.r-tel,
+    &.r-fax {
+      @include pc {
+        line-height: 1;
+        font-size: 18px;
+      }
+      @include sp {
+        @include vw(line-height, 40);
+        @include vw(font-size, 34);
+      }
+    }
+  }
+
+  .p-education-utility-area__block.r-type02 {
+    @include pc {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include sp {
+      @include vw(margin-top, 36);
+    }
+
+    .p-education-utility-area__box {
+      @include pc {
+        width: 50%;
+        margin-top: 25px;
+      }
+
+      &:nth-of-type(2) {
+        @include pc {
+          padding-left: 30px;
+          border-left: 1px solid #d6dcdc;
+        }
+
+        @include sp {
+          @include vw(margin-top, 22);
+          @include vw(padding-top, 8);
+          border-top: 1px solid #d6dcdc;
+        }
+      }
+    }
+
+    .p-education-utility-area__content {
+      &:nth-of-type(1) {
+        @include pc {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.p-education-utility-area.r-type02 {
+  @include pc {
+    padding: 40px;
+  }
+
+  @include sp {
+    @include vw(padding, 40);
+  }
+
+  .p-education-utility-area__ttl {
+    @include pc {
+      font-size: 24px;
+    }
+
+    @include sp {
+      margin-top: 0;
+      @include vw(font-size, 46);
+    }
+  }
+
+  .p-education-utility-area__content {
+    @include pc {
+      margin-top: 18px;
+    }
+
+    @include sp {
+      position: relative;
+      @include vw(margin-top, 12);
+      @include vw(padding-left, 178);
+      line-height: 1.392;
+      @include vw(font-size, 26);
+    }
+
+    &.r-time {
+      @include pc {
+        margin-top: 20px;
+        line-height: 1;
+      }
+
+      @include sp {
+        @include vw(margin-top, 36);
+        @include vw(line-height, 40);
+        @include vw(font-size, 34);
+      }
+    }
+  }
+
+  .p-education-utility-area__block.r-type02 {
+    @include pc {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include sp {
+      margin-top: 0;
+    }
+
+    .p-education-utility-area__box {
+      &:nth-of-type(1) {
+        @include pc {
+          width: 34.5%;
+        }
+      }
+
+      &:nth-of-type(2) {
+        @include pc {
+          width: 65.5%;
+          padding-left: 40px;
+          border-left: 1px solid #d6dcdc;
+        }
+
+        @include sp {
+          @include vw(margin-top, 40);
+          @include vw(padding-top, 8);
+          border-top: 1px solid #d6dcdc;
+        }
+      }
+    }
+
+    .c-list__item {
+      @include sp {
+        @include vw(margin-top, 25);
+      }
+    }
+
+    .c-list__item:nth-of-type(1) {
+      @include pc {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.p-education-utility-area.r-type03 {
+  @include pc {
+    padding: 24px 40px 40px;
+  }
+
+  @include sp {
+    @include vw(padding-top, 34);
+    @include vw(padding-right, 40);
+    @include vw(padding-bottom, 32);
+    @include vw(padding-left, 40);
+  }
+
+  .p-education-utility-area__note {
+    @include pc {
+      font-size: 11px;
+    }
+
+    @include sp {
+      @include vw(font-size, 20);
+    }
+  }
+
+  .p-education-utility-area__ttl {
+    @include pc {
+      line-height: 1.5;
+      font-size: 18px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 8);
+      @include vw(font-size, 34);
+    }
+  }
+
+  .p-education-utility-area__sub-ttl {
+    @include pc {
+      font-size: 16px;
+    }
+
+    @include sp {
+      @include vw(font-size, 26);
+    }
+  }
+
+  .p-education-utility-area__annotation {
+    @include pc {
+      font-size: 16px;
+    }
+
+    @include sp {
+      display: inline-block;
+      @include vw(margin-top, 18);
+      @include vw(font-size, 26);
+    }
+  }
+
+  .p-education-utility-area__content {
+    @include pc {
+      margin-top: 18px;
+    }
+
+    @include sp {
+      position: relative;
+      @include vw(margin-top, 20);
+      @include vw(padding-left, 220);
+      line-height: 1.392;
+      @include vw(font-size, 26);
+    }
+
+    &.r-free-dial,
+    &.r-fax {
+      @include pc {
+        line-height: 1;
+        font-size: 18px;
+      }
+      @include sp {
+        @include vw(line-height, 48);
+        @include vw(font-size, 34);
+      }
+    }
+
+    &.r-free-dial {
+      @include pc {
+        margin-top: 20px;
+      }
+
+      @include sp {
+        @include vw(margin-top, 40);
+      }
+    }
+  }
+
+  .p-education-utility-area__content__label {
+    @include pc {
+      width: 120px;
+      height: 24px;
+    }
+
+    @include sp {
+      @include vw(width, 200);
+      @include vw(height, 48);
+      @include vw(line-height, 48);
+    }
+  }
+
+  .p-education-utility-area__block.r-type02 {
+    @include pc {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include sp {
+      @include vw(margin-top, 36);
+    }
+
+    .p-education-utility-area__box {
+      @include pc {
+        margin-top: 25px;
+      }
+
+      &:nth-of-type(1) {
+        @include pc {
+          width: 56.35%;
+        }
+      }
+
+      &:nth-of-type(2) {
+        @include pc {
+          width: 43.65%;
+          padding-left: 30px;
+          border-left: 1px solid #d6dcdc;
+        }
+
+        @include sp {
+          @include vw(margin-top, 36);
+          @include vw(padding-top, 35);
+          border-top: 1px solid #d6dcdc;
+        }
+
+        .c-btn-list {
+          @include pc {
+            margin-top: 20px !important;
+          }
+
+          @include sp {
+            margin-top: 0 !important;
+          }
+
+          &__item {
+            @include sp {
+              @include vw(margin-top, 40);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.p-education-label-list {
+  &__item {
+    // TODO： あとでカラー変数いれる
+    border-top: 1px solid #d6dcdc;
+
+    @include pc {
+      margin-top: 20px;
+      padding-top: 21px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 27);
+      @include vw(padding-top, 27);
+    }
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  &__item__content {
+    position: relative;
+
+    @include pc {
+      margin-top: 20px;
+      padding-left: 90px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 20);
+      @include vw(padding-left, 180);
+    }
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+  }
+
+  &__item__content__label {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    // TODO： あとでカラー変数いれる
+    background-color: #ddd;
+
+    @include pc {
+      top: 2px;
+      width: 80px;
+      height: 24px;
+      line-height: 24px;
+      font-size: 12px;
+    }
+
+    @include sp {
+      @include vw(width, 160);
+      @include vw(height, 48);
+      @include vw(line-height, 48);
+      @include vw(font-size, 22);
+    }
+  }
+
+  &__item__content__timeline {
+    overflow: hidden;
+
+    dt {
+      @include sp {
+        float: left;
+        clear: left;
+        @include vw(margin-right, 30);
+        @include vw(width, 90);
+      }
+    }
+    dd {
+      @include sp {
+        @include vw(padding-left, 120);
+      }
+    }
+  }
+}
+
+//type02 itemにborderを非付与
+.p-education-label-list.r-type02 {
+  .p-education-label-list__item {
+    border-top: none;
+  }
+}
+
+// TODO: 野村リファクタリング
+.p-education-library-content {
+  @include pc {
+    margin-top: 30px;
+  }
+  @include sp {
+    @include vw(margin-top, 40);
+  }
+  .p-education-library-toggle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+
+    &__list {
+      border: 1px solid #ededed;
+      position: relative;
+      @include pc {
+        padding: 40px;
+        margin-bottom: 40px;
+      }
+      @include sp {
+        @include vw(padding, 40);
+        @include vw(margin-bottom, 40);
+                &:last-child {
+                    margin-bottom: 0;
+                }
+      }
+
+      &__header {
+        box-sizing: border-box;
+        display: flex;
+        @include sp {
+          flex-flow: column;
+        }
+
+        &__img {
+          display: flex;
+          @include pc {
+            width: 132px;
+            margin-right: 40px;
+          }
+          @include sp {
+            justify-content: center;
+          }
+        }
+
+        &__txt-area {
+          color: #333;
+          @include pc {
+            flex: 1;
+          }
+          @include sp {
+            @include vw(margin-top, 60);
+          }
+
+          &__hdg {
+            @include pc {
+              font-size: 24px;
+              line-height: 1.41;
+            }
+            @include sp {
+              @include font-vw(46);
+              @include vw(line-height, 70);
+            }
+            &__sub {
+              display: block;
+              @include pc {
+                font-size: 12px;
+                margin-bottom: 7px;
+              }
+              @include sp {
+                @include font-vw(23);
+                @include vw(line-height, 53);
+              }
+            }
+          }
+
+          &__desc {
+            @include pc {
+              margin-top: 30px;
+            }
+            @include sp {
+              @include vw(margin-top, 40);
+            }
+          }
+        }
+      }
+
+      &__btn {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include pc {
+          width: 80px;
+          height: 248px;
+          transition: opacity .3s;
+        }
+        @include sp {
+          @include wd-vw(140);
+          @include he-vw(400);
+        }
+
+        &:hover {
+          @include pc {
+            opacity: .6;
+          }
+        }
+
+        span {
+          border: 1px solid #e40018;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          @include pc {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            right: 20px;
+          }
+          @include sp {
+            @include wd-vw(60);
+            @include he-vw(60);
+            border-radius: 100%;
+            @include vw(right, 40);
+            @include vw(bottom, 106);
+          }
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-right: 1px solid #e40018;
+            border-top: 1px solid #e40018;
+            transform: rotate(135deg);
+            @include pc {
+              width: 7px;
+              height: 7px;
+              right: 15px;
+              bottom: 16px;
+            }
+            @include sp {
+              @include wd-vw(12);
+              @include he-vw(12);
+              @include vw(right, 20);
+              @include vw(bottom, 20);
+            }
+          }
+        }
+      }
+
+      //toggle-content
+      &__content {
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 1px solid #ededed;
+        @include pc {
+          width: 640px;
+        }
+
+        &__box {
+          @include pc {
+            margin-top: 80px;
+          }
+          @include sp {
+            @include vw(margin-top, 120);
+          }
+        }
+
+        &__item {
+          @include pc {
+            margin-top: 40px;
+          }
+          @include sp {
+            @include vw(margin-top, 60);
+          }
+
+          &  > *:first-child {
+            margin-top: 0;
+          }
+        }
+
+        &__hdg {
+          @include pc {
+            font-size: 16px;
+            line-height: 1.31;
+          }
+          @include sp {
+            @include font-vw(30);
+            @include vw(line-height, 50);
+          }
+          &__sub {
+            display: block;
+            @include pc {
+              font-size: 12px;
+              line-height: 1.75;
+            }
+            @include sp {
+              @include font-vw(20);
+              @include vw(line-height, 33);
+            }
+          }
+        }
+
+        &__txt {
+          @include pc {
+            margin-top: 15px;
+          }
+          @include sp {
+            @include vw(margin-top, 20);
+          }
+        }
+
+        &__txt-link-area {
+          display: flex;
+          @include sp {
+            flex-flow: column;
+          }
+          a {
+            @include pc {
+              margin-right: 60px;
+            }
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &__note {
+          @include pc {
+            font-size: 12px;
+            line-height: 1.83;
+          }
+          @include sp {
+            @include font-vw(20);
+          }
+        }
+      }
+    }
+  }
+
+  [aria-expanded="true"] > span:after {
+    transform: rotate(-45deg);
+    @include pc {
+      bottom: 14px;
+    }
+    @include sp {
+      @include vw(right, 22);
+      @include vw(bottom, 18);
+    }
+  }
+
+  [aria-expanded="true"] + .p-education-library-toggle__list__content {
+    height: auto;
+    opacity: 1;
+    transition: opacity .3s ease;
+    @include pc {
+      margin-top: 40px;
+      padding-top: 40px;
+    }
+    @include sp {
+      @include vw(margin-top, 60);
+      @include vw(padding-top, 60);
+    }
+  }
+}
+
+// TODO: 野村リファクタリング
+.p-storybook {
+  background: url(/assets/img/project/education/information/book/common/background-img-01.jpg);
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &.is-sp {
+    @media screen and (orientation: portrait) {
+      .p-storybook-wrapper {
+        display: none;
+      }
+      .p-storybook-modal {
+        display: block;
+      }
+    }
+  }
+}
+
+.p-storybook-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: block;
+
+  @include pc {
+    width: 1134px;
+    height: 417px;
+  }
+
+  @include sp {
+    width: 540px;
+    margin-top: -10px;
+  }
+
+  &.is-active {
+    opacity: 1;
+  }
+}
+
+.p-storybook-btn {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid $clr-orange;
+  transition: opacity .4s ease;
+
+  @include pc {
+    width: 40px;
+    height: 40px;
+    top: -60px;
+    right: -60px;
+  }
+
+  @include sp {
+    display: none;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: $clr-orange;
+    top: 50%;
+    @include pc {
+      width: 18px;
+    }
+    @include sp {
+      width: 10px;
+    }
+  }
+
+  &:before {
+    transform: rotate(45deg);
+    @include pc {
+      left: calc(50% - 8px);
+    }
+    @include sp {
+      left: calc(50% - 5px);
+    }
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+    @include pc {
+      left: calc(50% - 8px);
+    }
+    @include sp {
+      left: calc(50% - 5px);
+    }
+  }
+
+  &:hover {
+    @include pc {
+      opacity: .6;
+    }
+  }
+}
+
+.p-storybook-content {
+  @include pc {
+    cursor: pointer;
+  }
+
+  .fixed {
+    display: none;
+  }
+
+  .page {
+    @include pc {
+      width: 546px;
+      height: 397px;
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  .own-size {
+    @include sp {
+      width: 261px !important;
+    }
+  }
+
+  &.is-transition-start {
+    transition: margin-left 0.5s, transform 1s;
+  }
+
+  &.is-bgcolor-green {
+    background-color: #008c2b;
+  }
+}
+
+.p-storybook-page {
+  box-sizing: border-box;
+  @include pc {
+    width: 567px;
+  }
+  @include sp {
+    width: 270px;
+  }
+}
+
+.p-storybook-prev, .p-storybook-next {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  border-style: solid;
+  border-color: $clr-orange;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom: none;
+  border-left: none;
+
+  @include pc {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include sp {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.p-storybook-prev {
+  transform: rotate(-135deg);
+  opacity: 0;
+  @include pc {
+    top: calc(50% - 7px);
+    left: -46px;
+  }
+  @include sp {
+    bottom: -20px;
+    left: 4px;
+  }
+}
+
+.p-storybook-next {
+  transform: rotate(45deg);
+  opacity: 1;
+  @include pc {
+    top: calc(50% - 7px);
+    right: -46px;
+  }
+  @include sp {
+    bottom: -20px;
+    right: 4px;
+  }
+}
+
+.p-storybook-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    &__txt {
+      color: #008c2b;
+      text-align: center;
+      @include sp {
+        @include vw(margin-top, 50);
+        @include vw(font-size, 26);
+      }
+    }
+  }
+  img {
+    display: block;
+    @include sp {
+      @include vw(width, 430);
+    }
+  }
+}
+
+//TODO 野村リファクタリング
+.p-education-heading-visual {
+  position: relative;
+
+  @include sp {
+    width: 100vw;
+    @include vw(margin-left, -40);
+  }
+
+  &__ttl {
+    position: absolute;
+    z-index: 1;
+
+    @include pc {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 42px;
+    }
+    @include sp {
+      @include vw(top, 40);
+      @include vw(left, 40);
+    }
+  }
+}
+
+//TODO 野村リファクタリング
+// senior下層 背景色有りブロック r-xxxで色指定
+.p-education-bgcolor-block {
+  @include pc {
+    padding: 40px 30px;
+  }
+  @include sp {
+    @include vw(padding, 60, 40);
+  }
+  &.r-yellow {
+    background-color: #fcfbed;
+  }
+}
+
+.p-education-bgcolor-box {
+  display: flex;
+  @include pc {
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  @include sp {
+    flex-flow: column;
+    @include vw(margin-top, 60);
+  }
+}
+
+.p-education-bgcolor-content {
+
+  @include pc {
+    width: calc((100% - 24px) / 2);
+  }
+
+  @include sp {
+    width: 100%;
+  }
+
+  &:nth-of-type(n+2) {
+    @include sp {
+      @include vw(margin-top, 60);
+    }
+  }
+
+  &__link__img {
+    @include pc {
+      transition: opacity .2s;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+}
+
+//TODO 野村リファクタリング
+// senior下層 小見出し横ラベル r-xxxで背景色指定
+.p-education-ttl-label {
+  border-radius: 20px;
+  display: inline-block;
+  line-height: 1.4;
+  @include pc {
+    padding: 0 14px;
+  }
+  @include sp {
+    @include vw(padding, 1, 20);
+  }
+
+  & + span {
+    display: inline-block;
+  }
+}
+
+.p-education-ttl-label.r-red {
+  background-color: #e40018;
+  color: #fff;
+}
+
+.p-education-ttl-label.r-white {
+  background-color: #fff;
+  border: 1px solid #e40018;
+  color: #e40018;
+}
+
+//TODO 野村リファクタリング
+// senior03 ユニークグリッドレイアウト
+.p-education-unique-grid {
+  &__list {
+    display: flex;
+    @include pc {
+      flex-wrap: wrap;
+    }
+    @include sp {
+      flex-flow: column;
+    }
+  }
+
+  &__item {
+    display: flex;
+    @include pc {
+      width: 50%;
+      padding-bottom: 30px;
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(padding, 40, 0);
+    }
+
+    &:not(:first-of-type) {
+      @include sp {
+        border-top: 1px solid #eee;
+      }
+    }
+
+    &:nth-of-type(odd) {
+      @include pc {
+        padding-right: 20px;
+        border-right: 1px solid #eee;
+      }
+    }
+
+    &:nth-of-type(even) {
+      @include pc {
+        padding-left: 20px;
+      }
+    }
+
+    &:nth-of-type(-n+2) {
+      @include pc {
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    &:nth-of-type(n+3) {
+      @include pc {
+        padding-top: 30px;
+      }
+    }
+
+    &:first-of-type {
+      @include sp {
+        padding-top: 0;
+      }
+    }
+
+    &:last-of-type {
+      @include sp {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__item__img {
+    @include pc {
+      width: 120px;
+      margin-right: 20px;
+    }
+    @include sp {
+      @include vw(width, 150);
+      @include vw(margin-right, 30);
+    }
+
+    img {
+      @include sp {
+        width: 100%;
+      }
+    }
+  }
+
+  &__item__txt {
+    flex: 1;
+  }
+
+  &__item__txt__ttl {
+    font-weight: bold;
+    & + p {
+      @include pc {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+// TODO 野村リファクタリング
+// 突貫label-txt-list（seniorの03で主に使用）
+.p-education-label-txt-list {
+  display: flex;
+
+  &__item:nth-of-type(1) {
+    @include pc {
+      width: 112px;
+    }
+    @include sp {
+      @include vw(width, 200);
+    }
+  }
+
+  &__item:nth-of-type(2) {
+    @include pc {
+      width: calc(100% - 112px);
+    }
+    @include sp {
+      @include vw(width, 470);
+    }
+  }
+}

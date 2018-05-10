@@ -1,0 +1,98 @@
+// TODO：ejs内のnoteすべて見直し
+
+
+/*
+---
+name: .c-note - セクション用注釈
+menu: レイアウト/セクション/注釈
+category: component/note
+tag:
+- component
+- note
+---
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box">
+      <div class="c-sec__content">
+        <p>本文</p>
+      </div>
+      <!-- /.c-sec__content -->
+      <div class="c-note">
+        <p>注釈は`.c-sec__content`と並列に並びます</p>
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- 注釈は`.c-sec__content`と並列にマークアップします
+
+*/
+
+// TODO：c-sec-noteにする
+// .c-note {
+//   position: relative;
+
+//   @include pc {
+//     margin-top: 20px;
+//     line-height: 1.83;
+//     font-size: 12px;
+//   }
+
+//   @include sp {
+//     @include vw(margin-top, 30);
+//     line-height: 2.1;
+//     @include vw(font-size, 24);
+//   }
+
+//   &__item {
+//     position: relative;
+
+//     &__style {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//     }
+
+//     &.r-indent01 {
+//       padding-left: 2.5em;
+//     }
+
+//     &.r-indent02 {
+//       padding-left: 2.5em;
+//     }
+//   }
+// }
+
+// TODO: 別コンポーネントとの隣接セレクタはどうするか？
+// .c-sec__content + .c-note {
+//   @include pc {
+//     margin-top: 40px;
+//   }
+
+//   @include sp {
+//     @include vw(margin-top, 60);
+//   }
+// }
+
+.c-note {
+  line-height: $lh-s;
+
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(13, 13 * $lh-s, 20);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(22, 22 * $lh-s, 30);
+  }
+}

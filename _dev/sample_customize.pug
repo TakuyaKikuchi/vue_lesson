@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vue.jsのテスト</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div v-text="message" @click="replace"></div>
-    </div>
-    <script>
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Vue.jsのテスト
+    script(src='https://cdn.jsdelivr.net/npm/vue')
+  body
+    #app
+      div(v-text='message', @click='replace')
+    script.
       // 参考サイト　http://blog.aire-project.com/articles/344
       var flg = false;
       var app101 = new Vue({
@@ -31,6 +29,3 @@
           }
         }
       })
-    </script>
-  </body>
-</html>

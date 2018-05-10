@@ -1,0 +1,316 @@
+/*
+---
+name: .c-hdg--lv2 - 大見出し
+category: component/heading
+tag:
+- component
+- heading
+---
+
+```html
+  <h2 class="c-hdg--lv2">大見出し</h2>
+  <!-- /.c-hdg--lv2 -->
+```
+
+- サンプルでは`h2`タグを使用していますが、どのタグを使用しても問題ありません。
+
+### .c-hdg--lv2.r-emphasis - 強調パターン
+
+```html
+  <h2 class="c-hdg--lv2 r-emphasis">大見出し（強調）</h2>
+  <!-- /.c-hdg--lv2 -->
+```
+
+*/
+
+/*
+---
+name: .c-hdg--lv3 - 中見出し
+category: component/heading
+tag:
+- component
+- heading
+---
+
+```html
+  <h3 class="c-hdg--lv3">中見出し</h3>
+  <!-- /.c-hdg--lv3 -->
+```
+
+- サンプルでは`h3`タグを使用していますが、どのタグを使用しても問題ありません。
+
+### .c-hdg--lv3.r-emphasis - 強調パターン
+
+```html
+  <h3 class="c-hdg--lv3 r-emphasis">中見出し（強調）</h3>
+  <!-- /.c-hdg--lv3 -->
+```
+
+*/
+
+/*
+---
+name: .c-hdg--lv4 - 小見出し
+category: component/heading
+tag:
+- component
+- heading
+---
+
+```html
+  <h4 class="c-hdg--lv4">小見出し</h4>
+  <!-- /.c-hdg--lv4 -->
+```
+
+- サンプルでは`h4`タグを使用していますが、どのタグを使用しても問題ありません。
+
+### .c-hdg--lv4.r-emphasis - 強調パターン
+
+```html
+  <h4 class="c-hdg--lv4 r-emphasis">小見出し（強調）</h4>
+  <!-- /.c-hdg--lv4 -->
+```
+
+*/
+
+/*
+---
+name: .c-hdg--lv5 - 小見出し（別パターン）
+category: component/heading
+tag:
+- component
+- heading
+---
+
+```html
+  <h5 class="c-hdg--lv5">小見出し</h5>
+  <!-- /.c-hdg--lv5 -->
+```
+
+- サンプルでは`h5`タグを使用していますが、どのタグを使用しても問題ありません。
+
+### .c-hdg--lv5.r-emphasis - 強調パターン
+
+```html
+  <h5 class="c-hdg--lv5 r-emphasis">小見出し（強調）</h5>
+  <!-- /.c-hdg--lv5 -->
+```
+
+*/
+
+//--- Heading lv2
+.c-hdg--lv2 {
+  position: relative;
+
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(30, 30 * $lh-m, 0);
+  }
+
+  @include sp {
+    line-height: $lh-xs;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(60, 60 * $lh-xs, 0);
+  }
+
+  &.role-main-visual {
+    position: relative;
+    margin: 0;
+
+    .l-main-visual__txt {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+      color: #e4002b;
+      border-bottom-style: solid;
+      border-bottom-color: #e4002b;
+      transform: translate(0, -50%);
+
+      @include pc {
+        width: 414px;
+        padding-bottom: 21px;
+        padding-left: 100px;
+        border-bottom-width: 1px;
+      }
+
+      @include sp {
+        @include vw(width, 445);
+        @include vw(padding-bottom, 30);
+        @include vw(padding-left, 60);
+        @include vw(border-bottom-width, 2);
+      }
+
+      &--en {
+        display: inline-block;
+
+        @include pc {
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+
+        @include sp {
+          @include vw(margin-bottom, 5);
+          @include vw(font-size, 20);
+        }
+      }
+
+      &--ja {
+        display: inline-block;
+
+        @include sp {
+          font-size: 32px;
+        }
+
+        @include sp {
+          @include vw(font-size, 54);
+        }
+      }
+    }
+  }
+
+  // 企業情報 トップメッセージ
+  &.r-company-msg {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      @include font-margin-with-tb(30, 30 * $lh-m, -4);
+    }
+  }
+}
+
+//--- Heading lv3
+.c-hdg--lv3 {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(24, 24 * $lh-m, 120);
+  }
+
+  @include sp {
+    line-height: $lh-xs;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(46, 46 * $lh-xs, 150);
+  }
+}
+
+//--- Heading lv4
+.c-hdg--lv4 {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-color: $clr-middlegray;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    background-color: $clr-kp-red;
+  }
+
+  &.r-aspiration {
+    &::before {
+      background-color: $clr-blue;
+    }
+  }
+
+  &.r-posture {
+    &::before {
+      background-color: $clr-lightgreen;
+    }
+  }
+
+  @include pc {
+    padding-bottom: 9px;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(19, 19 * $lh-m, 80);
+    border-bottom-width: 2px;
+
+    &::before {
+      bottom: -2px;
+      width: 132px;
+      height: 2px;
+    }
+  }
+
+  @include sp {
+    line-height: $lh-xs;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(36, 36 * $lh-xs, 120);
+    @include vw(padding-bottom, 16);
+    @include vw(border-bottom-width, 2);
+
+    &::before {
+      @include vw(bottom, -2);
+      @include vw(width, 178);
+      @include vw(height, 2);
+    }
+  }
+}
+
+//--- Heading lv5
+.c-hdg--lv5 {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(17, 17 * $lh-m, 60);
+  }
+
+  @include sp {
+    line-height: $lh-xs;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(32, 32 * $lh-xs, 100);
+  }
+}
+
+.c-hdg {
+  &--lv {
+
+    //--- .c-hdg--lv6
+    &6 {
+      line-height: inherit;
+      font-size: inherit;
+      font-weight: bold;
+    }
+  }
+}
+
+[class^="c-hdg"] {
+  &.r-emphasis {
+    color: #e4002b;
+  }
+}
+
+//↓↓↓ ユニークパターン
+//--- H2とsectionが並んだ場合のH3のmargin上部
+.c-hdg--lv2 + .c-sec {
+  .c-hdg--lv3 {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      @include font-margin-with-tb(24, 24 * $lh-m, 80);
+    }
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      @include font-margin-with-tb(46, 46 * $lh-xs, 70);
+    }
+  }
+}
+
+//--- H3とblockが並んだ場合のH4のmargin上部
+.c-hdg--lv3 + .c-sec__block {
+  .c-hdg--lv4 {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      @include font-margin-top(19, 19 * $lh-m, 40);
+    }
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      @include font-margin-top(36, 36 * $lh-xs, 60);
+    }
+  }
+}

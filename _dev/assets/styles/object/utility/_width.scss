@@ -1,0 +1,51 @@
+/*
+---
+name: 幅調整クラス
+menu: ユーティリティ/調整用クラス/幅調整
+category: utility/adjust/width
+tag:
+- utility
+- adjust
+- width
+---
+
+```html
+<div class="u-wd120--pc">120pxの固定幅</div>
+<div class="u-wd150--sp">750px（iPhone6）の画面幅の場合150px相当の幅</div>
+```
+
+- 個別の幅調整は.u-wd0-pc .u-wd0-sp のユーティリティクラスで調整を行います
+- 幅の単位は 500pxまで5px単位で用意
+- SPの場合は750px（iPhone6Retina）の画面幅を元にvwで算出されます
+
+*/
+.u-wd {
+  @for $i from 1 through 100 {
+    &#{$i*5} {
+      &--pc {
+        @include pc{
+          width: #{$i*5 + px} !important;
+        }
+      }
+      &--sp {
+        @include sp{
+          width: #{$i*5 + px} !important;
+          width: (#{100 / $screensize * $i*5}vw) !important;
+        }
+      }
+    }
+    &#{$i + per} {
+      width: #{$i + %} !important;
+      &--pc {
+        @include pc{
+          width: #{$i + %} !important;
+        }
+      }
+      &--sp {
+        @include sp{
+          width: #{$i + %} !important;
+        }
+      }
+    }
+  }
+}

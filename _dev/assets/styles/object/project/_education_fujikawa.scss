@@ -1,0 +1,132 @@
+.p-education-library-toggle__list__movie__box {
+    display: flex;
+    flex-wrap: wrap;
+    @include pc {
+        margin-top: 35px;
+    }
+    @include sp {
+        @include vw(margin-top, 52);
+    }
+}
+
+.p-education-library-toggle__list__movie__content {
+    @include sp {
+        width: 100%;
+    }
+    &:nth-child(1) {
+        @include pc {
+            width: 428px;
+            margin-right: 22px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    &:nth-child(2) {
+        @include pc {
+            width: 242px;
+        }
+        @include sp {
+            @include vw(margin-top, 40);
+        }
+    }
+    .c-btn-list {
+        @include pc {
+            margin-top: 0;
+        }
+        @include sp {
+            @include vw(margin-top, 40);
+        }
+        &__item {
+            @include pc {
+                margin-top: 22px;
+            }
+            @include sp {
+                @include vw(margin-top, 30);
+                margin-bottom: 0;
+            }
+            &:nth-child(1) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.c-btn-list__position-revision__first {
+    @include pc {
+        margin-top: 24px;
+    }
+}
+
+.c-btn-list__position-revision__second {
+    @include pc {
+        margin-top: 7px;
+    }
+}
+
+.p-education-toggle-list__item__overview {
+    position: relative;
+    background-color: #f2f2f2;
+    @include pc {
+        margin-top: 42px;
+        padding: 15px 60px 15px 20px;
+        line-height: 1.571;
+        font-size: 14px;
+    }
+    @include sp {
+        @include vw(margin-top, 78);
+        @include vw(padding-top, 38);
+        @include vw(padding-right, 80);
+        @include vw(padding-bottom, 38);
+        @include vw(padding-left, 40);
+        line-height: 1.172;
+        @include vw(font-size, 26);
+    }
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        background-color: #e4002b;
+        @include pc {
+            right: 20px;
+            width: 11px;
+            height: 1px;
+        }
+        @include sp {
+            @include vw(right, 40);
+            @include vw(width, 16);
+            @include vw(height, 2);
+        }
+    }
+    &::before {
+        transform: translate(-50%, 0);
+    }
+    &::after {
+        transform: translate(-50%, 0) rotate(90deg);
+    }
+}
+
+.p-education-toggle-list__item__topttl {
+    @include pc {
+        line-height: 1.41;
+        font-size: 24px;
+    }
+    @include sp {
+        @include vw(font-size, 46);
+        line-height: 1.52;
+    }
+}
+
+.p-education-toggle-list__item__subttl {
+    @include pc {
+        font-size: 12px;
+        line-height: 1.75;
+    }
+    @include sp {
+        @include vw(font-size, 23);
+        line-height: 1.73;
+    }
+}

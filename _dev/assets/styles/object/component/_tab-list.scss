@@ -1,0 +1,61 @@
+// TODO: 全体的に悩み中!!!!!!!!!!!!!!!!!
+.c-tab-list {
+  display: flex;
+
+  @include pc {
+    margin-bottom: 60px;
+  }
+
+  // TODO: l-main__content のmarginによる
+  @include sp {
+    @include vw(width, 750);
+    @include vw(margin-bottom, 100);
+    @include vw(margin-left, -40);
+  }
+
+  &__item {
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+    color: #999;
+    line-height: 1;
+
+    @include pc {
+      padding-bottom: 22px;
+      font-size: 14px;
+      box-shadow: 0 -1px 0 #dcdcdc inset;
+      border-bottom: 1px solid #fff;
+    }
+
+    @include sp {
+      @include vw(padding-top, 18);
+      @include vw(padding-bottom, 18);
+      @include vw(font-size, 30);
+      border-bottom: 2px solid #fff;
+      box-shadow: 0 -2px 0 #dcdcdc inset;
+    }
+
+    .is-cojp & {
+      @include pc {
+        box-shadow: 0 -1px 0 #e9acb1 inset;
+      }
+    }
+
+    &.is-active {
+      color: #e4002b;
+
+      @include pc {
+        border-bottom: 2px solid #e4002b;
+        box-shadow: none;
+      }
+
+      @include sp {
+        border-bottom: 4px solid #e4002b;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,314 @@
+/*
+---
+name: リスト（カードタイプ）
+category: component/cardlist
+tag:
+- component
+- cardlist
+---
+
+```html
+
+  <div class="c-card-list r-type01">
+    <div class="c-card-list__item">
+      <a href="#" class="c-card-list__item__link">
+        <p class="c-card-list__item__thumb">
+          <img src="/assets/img/project/education/lecture/common/card_img-04.jpg" alt="" class="c-card-list__item__thumb__img">
+        </p>
+        <p class="c-card-list__item__ttl">
+          ●●市●●老人ホームにて食と健康について学んでいただきました！
+        </p>
+        <p class="c-card-list__item__date">
+          2018/1/12更新
+        </p>
+      </a>
+    </div>
+    <!-- /.c-card-list__item -->
+
+    <div class="c-card-list__item">
+      <a href="#" class="c-card-list__item__link">
+        <p class="c-card-list__item__thumb">
+          <img src="/assets/img/project/education/lecture/common/card_img-04.jpg" alt="" class="c-card-list__item__thumb__img">
+        </p>
+        <p class="c-card-list__item__ttl">
+          ●●市●●老人ホームにて食と健康について学んでいただきました！
+        </p>
+        <p class="c-card-list__item__date">
+          2018/1/12更新
+        </p>
+      </a>
+    </div>
+    <!-- /.c-card-list__item -->
+
+    <div class="c-card-list__item">
+      <a href="#" class="c-card-list__item__link">
+        <p class="c-card-list__item__thumb">
+          <img src="/assets/img/project/education/lecture/common/card_img-04.jpg" alt="" class="c-card-list__item__thumb__img">
+        </p>
+        <p class="c-card-list__item__ttl">
+          ●●市●●老人ホームにて食と健康について学んでいただきました！
+        </p>
+        <p class="c-card-list__item__date">
+          2018/1/12更新
+        </p>
+      </a>
+    </div>
+    <!-- /.c-card-list__item -->
+
+    <div class="c-card-list__item">
+      <a href="#" class="c-card-list__item__link">
+        <p class="c-card-list__item__thumb">
+          <img src="/assets/img/project/education/lecture/common/card_img-04.jpg" alt="" class="c-card-list__item__thumb__img">
+        </p>
+        <p class="c-card-list__item__ttl">
+          ●●市●●老人ホームにて食と健康について学んでいただきました！
+        </p>
+        <p class="c-card-list__item__date">
+          2018/1/12更新
+        </p>
+      </a>
+    </div>
+    <!-- /.c-card-list__item -->
+  </div>
+  <!-- /.c-card-list -->
+```
+
+- ルールを記載
+
+*/
+
+// base
+.c-card-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    &__thumb {
+      &__img {
+        width: 100%;
+      }
+    }
+
+    &__ttl {
+      // TODO：色を変数にする
+      color: #e4002b;
+
+      @include pc {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      @include sp {
+        @include font-margin-top(30, 52, 40);
+      }
+
+      // TODO：野村　後でリファクタリング
+      // タイトル黒の時どうするか
+      // 該当箇所 /education/openkitchen/research/index.html
+      &.r-color-black {
+        color: #333;
+      }
+    }
+
+    &__txt,
+    &__date,
+    &__detail {
+      @include pc {
+        margin-top: 4px;
+      }
+      @include sp {
+        @include font-margin-top(26, 48, 26);
+      }
+    }
+
+    &__link {
+      display: block;
+      @include pc {
+        transition: opacity .2s;
+
+        &:hover {
+          text-decoration: none;
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
+
+// type1 PC：mainが2column時の3column SP：1column
+// TODO： r-type04とmargin-top以外かぶる
+.c-card-list.r-type01 {
+  .c-card-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      @include vw(top, 62);
+      @include vw(left, 23);
+      @include vw(font-size, 26);
+    }
+  }
+}
+
+// type2 PC：mainが2column時の3column SP：2column
+.c-card-list.r-type02 {
+  .c-card-list__item {
+    @include pc {
+      display: none;
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        display: block;
+      }
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 48%;
+      @include vw(margin-top, 26);
+      margin-right: 4%;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type3 mainが2column時の2column SP : 1column
+// TODO to 野村 後でリファクタリング
+.c-card-list.r-type03 {
+  .c-card-list__item {
+    @include pc {
+      width: calc((100% - 24px) / 2);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(margin-top, 80);
+      margin-right: 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type4 PC：mainが2column時の3column SP：1column
+// TODO： r-type01とmargin-top以外かぶる
+.c-card-list.r-type04 {
+  .c-card-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 65px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      @include vw(top, 62);
+      @include vw(left, 23);
+      @include vw(margin-top, 52);
+      @include vw(font-size, 26);
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type5 PC：mainが2column時の3column SP：1column
+// TODO： 突貫なので見直す
+.c-card-list.r-type05 {
+  .c-card-list__item {
+    @include pc {
+      width: calc((100% - 24px * 3) / 4);
+      margin-top: 65px;
+      margin-right: 24px;
+
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 4) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      @include vw(top, 62);
+      @include vw(left, 23);
+      @include vw(margin-top, 52);
+      @include vw(font-size, 26);
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type3 mainが2column時の4column SP : 1column
+// TODO to 野村 後でリファクタリング
+.c-card-list.r-type06 {
+  .c-card-list__item {
+    @include pc {
+      width: calc((100% - 24px * 3) / 4);
+      margin-top: 65px;
+      margin-right: 24px;
+
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 4) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(margin-top, 80);
+      margin-right: 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}

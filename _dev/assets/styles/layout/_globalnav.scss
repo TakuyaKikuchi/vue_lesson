@@ -1,0 +1,185 @@
+.l-gnav {
+  @include pc {
+    margin-top: 40px;
+    border-top: 1px solid $clr-gray;
+  }
+
+  .l-gnav__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include pc {
+      height: 55px;
+    }
+  }
+
+  .l-gnav__list__itm {
+    @include pc {
+      &:first-child {
+        .l-gnav__list__itm__link {
+          padding-left: 0 !important;
+
+          &::after {
+            left: 0 !important;
+          }
+        }
+      }
+
+      &:nth-child(6) {
+        margin-left: 34px;
+      }
+
+      &:nth-child(n + 6) {
+        //TODO： リファクタ、カラー変数に追加するか？
+        color: #555;
+      }
+
+      &:last-child {
+        .l-gnav__list__itm__link {
+          padding-right: 0 !important;
+
+          &::after {
+            right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .l-gnav__list__itm__link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      right: 11px;
+      bottom: 1px;
+      left: 11px;
+      z-index: 1;
+      height: 2px;
+      background-color: $clr-kp-red;
+    }
+
+    &:hover {
+      &::after {
+        display: block;
+      }
+    }
+
+    @include pc {
+      padding-right: 11px;
+      padding-left: 11px;
+      font-weight: bold;
+
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-padding(13, 13 * $lh-m, 22);
+    }
+  }
+
+  .l-gnav__sublist {
+    display: none;
+  }
+}
+
+.l-unav {
+  @include pc {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .l-unav__list {
+    @include pc {
+      overflow: hidden;
+    }
+  }
+
+  .l-unav__list__itm {
+    @include pc {
+      float: left;
+    }
+
+    &:last-child {
+      .l-unav__list__itm__link {
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  .l-unav__list__itm__link {
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @include pc {
+      padding: 7px 16px;
+      //TODO： リファクタ、カラー変数に追加するか？
+      color: #555;
+      font-weight: bold;
+      //TODO： リファクタ、カラー変数に追加するか？
+      font-size: 12px;
+    }
+  }
+
+  .l-unav__list__itm__link[target="_blank"] {
+    @include pc {
+      position: relative;
+      margin-right: 23px;
+      padding-right: 14px;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        width: 8px;
+        height: 8px;
+      }
+
+      &:after {
+        right: 0;
+        margin-top: -5px;
+        border: 1px solid #555;
+      }
+
+      &:before {
+        right: 2px;
+        margin-top: -3px;
+        border-bottom: 1px solid #555;
+        border-left: 1px solid #555;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

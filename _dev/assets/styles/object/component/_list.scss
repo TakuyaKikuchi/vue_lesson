@@ -1,0 +1,135 @@
+/*
+---
+name: .c-list - リスト
+category: component/list
+tag:
+- component
+- list
+---
+
+```html
+<ul class="c-list r-disc01">
+  <li class="c-list__itm">
+    野菜摂取による肥満児童の低減を目的としたサンドイッチ教室の開催
+  </li>
+
+  <li class="c-list__itm">
+    子どもたちの健康増進を目的とし、「Earth Kids Times」新聞（季刊）への記事の継続的掲載
+  </li>
+</ul>
+<!-- /.c-list -->
+```
+
+- 中黒のスタイルは`.r-disc01`で指定しています
+
+*/
+
+//↓↓↓ リスト共通
+.c-list {
+  .c-list__itm {
+    position: relative;
+  }
+
+  //--- リストアイテムの先頭は余白無し
+  .c-list__itm:first-child {
+    margin-top: 0 !important;
+  }
+
+  //--- フォントサイズS
+  .c-list__itm.is-small {
+    @include pc {
+      font-size: $fs-s-pc;
+    }
+
+    @include sp {
+      font-size: $fs-s-sp;
+    }
+  }
+
+  //--- 間隔をあけるケース（is-spaceを付与）
+  .c-list__itm.is-space {
+    line-height: $lh-s;
+
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-top(15, 15 * $lh-s, 20);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-top(28, 28 * $lh-s, 40);
+    }
+  }
+  .c-list__itm.is-small.is-space {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-top(14, 14 * $lh-s, 20);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-top(26, 26 * $lh-s, 40);
+    }
+  }
+
+  //--- リストスタイルdisc１：中黒 padding:1em バージョン
+  .c-list__itm.r-disc01 {
+    padding-left: 1em;
+
+    &::before {
+      content: '・';
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.c-list {
+  &__itm {
+    // リストマークのパディング 2.5emバージョン：()数字序列向け
+    &.r-indent02 {
+      padding-left: 2.1em;
+      .c-list__itm__style {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // リストマークのパディング 1emバージョン
+  &.r-type01 {
+    .c-list__itm {
+      text-indent: -1em;
+      padding-left: 1em;
+    }
+  }
+
+  // リストマークのパディング 1.5emバージョン
+  &.r-type02 {
+    .c-list__itm {
+      text-indent: -1.25em;
+      padding-left: 1.5em;
+    }
+  }
+
+  // リストスタイルnum１
+  &.r-num01 {
+    .c-list__itm {
+      padding-left: 1.8em;
+
+      // TODO： リファクタ、markの役割精査
+      &__mark {
+        content: '・';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

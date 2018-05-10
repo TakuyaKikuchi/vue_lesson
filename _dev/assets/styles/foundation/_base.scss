@@ -1,0 +1,123 @@
+html {
+  overflow-x: hidden;
+  width: 100%;
+
+  @include vp($breakpoint, 1039px) {
+    overflow-x: visible;
+    min-width: 1079px;
+  }
+
+  @media screen and (orientation:landscape) {
+    width: 100%;
+  }
+
+  @media screen and (orientation:portrait) {
+    width: 100%;
+  }
+
+  @include pc {
+    font-size: $fs-m-pc;
+  }
+
+  @include sp {
+    font-size: $fs-m-sp;
+  }
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  color: $clr-txt;
+  line-height: $lh-m;
+  font-family: 'YakuHanJP', 'BaseFont-JP', Helvetica, Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-print-color-adjust: exact;
+  letter-spacing: .05em;
+  //-webkit-font-smoothing: antialiased;
+}
+
+input, button, select {
+  font-family: 'Roboto', 'YakuHanJP', 'BaseFont-JP', Helvetica, Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+*::selection {
+  //color: #fff;
+  //background-color: $clr-notice;
+}
+
+input::selection {
+  //color: $clr-notice;
+  //background-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  @include sp{
+    max-width: 9999px; //Android 4.4 Hack
+  }
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  @include pc {
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+a, button {
+  &.is-touch {
+    opacity: .6;
+  }
+}
+
+sub {
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: 71.4%;
+}
+sup {
+  line-height: 0;
+  @include pc{
+    font-size: 10px;
+  }
+  @include sp{
+    @include font-vw(20);
+  }
+}
+
+[aria-hidden] {
+  transition: opacity .2s;
+}
+[aria-hidden="true"] {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+[aria-hidden="false"] {
+  height: auto;
+  opacity: 1;
+}
+
+// telリンク
+a[href^="tel:"] {
+  cursor: default;
+  text-decoration: none;
+}

@@ -1,0 +1,20 @@
+include /_inc/modules/_meta.pug
+block vars
+
+doctype html
+html
+  head
+    block meta
+      +meta
+    link(rel="stylesheet" type="text/css" href="/sample001/assets/styles/style.css")
+
+  body.l-body
+    .l-wrapper.js-border
+      .l-background
+      include /_inc/layout/_header.pug
+      main.l-main
+        block contents
+      include /_inc/layout/_footer.pug
+
+    block script
+      script(src='/sample001/assets/scripts/app.js')

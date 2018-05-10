@@ -1,0 +1,620 @@
+/*
+---
+name: .c-sec - セクション
+menu: レイアウト/セクション
+category: layout/section
+tag:
+- layout
+- section
+---
+
+```html
+<div class="c-sec">
+  `.c-sec`はh2と並列に並びます。
+</div>
+<!-- /.c-sec -->
+```
+
+- マークアップ時のセクショニングでh2相当の見出し配下の文節に使用します（h2 + c-sec）
+
+*/
+
+
+/*
+---
+name: .c-sec__block - セクションブロック
+menu: レイアウト/セクション/ブロック
+category: layout/section
+tag:
+- layout
+- section
+- block
+---
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    `.c-sec__block`はh3と並列に並びます。
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- マークアップ時のセクショニングでh3相当の見出し配下の文節に使用します（.c-sec > h3 + c-sec__block）
+
+*/
+
+
+/*
+---
+name: .c-sec__box - セクションボックス
+menu: レイアウト/セクション/ボックス
+category: layout/section
+tag:
+- layout
+- section
+- box
+---
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box">
+      `.c-sec__box`はh4と並列に並びます。
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- マークアップ時のセクショニングでh4相当の見出し配下の文節に使用します（h4 + c-sec__box）
+
+## タイプ2（PC：2カラム）
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box r-type02">
+      <div class="c-sec__content">
+        <img src="/assets/img/project/education/lecture/common/section_content-pic-01.jpg" alt="" class="c-sec__content__item is-dummy">
+      </div>
+      <!-- /.c-sec__content -->
+
+      <div class="c-sec__content">
+        <p class="c-sec__content__item">
+          食生活と健康についての正しい情報の提供を目的として、1984年から開始しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          高齢化が進み、単身世帯が増加する現代社会において、留意すべき事柄をわかりやすく説明する講演会として、食生活と健康についての正しい情報提供のための講演会を開催しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          健康で楽しい食生活に貢献したいと考えています。
+        </p>
+      </div>
+      <!-- /.c-sec__content -->
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- `.c-sec__content`を2カラムで並べる場合`.c-sec__box.r-type02`を指定します。
+- PCの幅はローカルナビが入った状態のもの（775px）で最適化されています。
+
+
+### タイプ2 左右入れ替え
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box r-type02 r-reverse">
+      <div class="c-sec__content">
+        <img src="/assets/img/project/education/lecture/common/section_content-pic-01.jpg" alt="" class="c-sec__content__item is-dummy">
+      </div>
+      <!-- /.c-sec__content -->
+
+      <div class="c-sec__content">
+        <p class="c-sec__content__item">
+          食生活と健康についての正しい情報の提供を目的として、1984年から開始しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          高齢化が進み、単身世帯が増加する現代社会において、留意すべき事柄をわかりやすく説明する講演会として、食生活と健康についての正しい情報提供のための講演会を開催しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          健康で楽しい食生活に貢献したいと考えています。
+        </p>
+      </div>
+      <!-- /.c-sec__content -->
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- タイプ2を左右入れ替えする場合、`.c-sec__box.r-type02.r-reverse`を指定します。
+- PCの幅はローカルナビが入った状態のもの（775px）で最適化されています。
+
+## タイプ3（PC：2カラム（1:2））
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box r-type03">
+      <div class="c-sec__content">
+        <img src="/assets/img/project/education/lecture/common/section_content-pic-01.jpg" alt="" class="c-sec__content__item is-dummy">
+      </div>
+      <!-- /.c-sec__content -->
+
+      <div class="c-sec__content">
+        <p class="c-sec__content__item">
+          食生活と健康についての正しい情報の提供を目的として、1984年から開始しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          高齢化が進み、単身世帯が増加する現代社会において、留意すべき事柄をわかりやすく説明する講演会として、食生活と健康についての正しい情報提供のための講演会を開催しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          健康で楽しい食生活に貢献したいと考えています。
+        </p>
+      </div>
+      <!-- /.c-sec__content -->
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- `.c-sec__content`を2カラム（1:2）で並べる場合`.c-sec__box.r-type03`を指定します。
+- PCの幅はローカルナビが入った状態のもの（775px）で最適化されています。
+
+
+## タイプ3（PC：2カラム（1:2））左右入れ替え
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box r-type03 r-reverse">
+      <div class="c-sec__content">
+        <img src="/assets/img/project/education/lecture/common/section_content-pic-01.jpg" alt="" class="c-sec__content__item is-dummy">
+      </div>
+      <!-- /.c-sec__content -->
+
+      <div class="c-sec__content">
+        <p class="c-sec__content__item">
+          食生活と健康についての正しい情報の提供を目的として、1984年から開始しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          高齢化が進み、単身世帯が増加する現代社会において、留意すべき事柄をわかりやすく説明する講演会として、食生活と健康についての正しい情報提供のための講演会を開催しています。
+        </p>
+
+        <p class="c-sec__content__item">
+          健康で楽しい食生活に貢献したいと考えています。
+        </p>
+      </div>
+      <!-- /.c-sec__content -->
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- タイプ3（PC：2カラム（1:2））を左右入れ替えする場合、`.c-sec__box.r-type03.r-reverse`を指定します。
+- PCの幅はローカルナビが入った状態のもの（775px）で最適化されています。
+
+
+*/
+
+
+/*
+---
+name: .c-sec__content - セクションコンテンツ
+menu: レイアウト/セクション/コンテンツ
+category: layout/section
+tag:
+- layout
+- section
+- content
+---
+
+```html
+
+<div class="c-sec">
+  <div class="c-sec__block">
+    <div class="c-sec__box">
+      <div class="c-sec__content">
+        `.c-sec__content`はh5と並列に並びます。
+      </div>
+      <!-- /.c-sec__content -->
+    </div>
+    <!-- /.c-sec__box -->
+  </div>
+  <!-- /.c-sec__block -->
+</div>
+<!-- /.c-sec -->
+
+```
+
+- マークアップ時のセクショニングでh5相当の見出し配下の文節に使用します（h5 + c-sec__content
+*/
+
+//--- c-sec
+.c-sec {}
+
+//--- .c-sec__block
+.c-sec__block {}
+
+//--- .c-sec__box
+.c-sec__box {}
+
+// --- .c-sec__content
+// SP時は1カラム、PC時は下部にboxのタイプ別に指定
+.c-sec__content {
+  @include sp {
+    @include vw(margin-top, 50);
+  }
+}
+
+//--- .c-sec__content__item
+.c-sec__content__item {
+  @include pc {
+    margin-top: 2em;
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+  }
+  @include sp {
+    @include vw(margin-top, 50);
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+  }
+}
+
+// .c-sec__contentの隣接セレクタ
+// SP時のみ共通指定、PC時は下部にboxのタイプ別に指定
+.c-sec__content + .c-sec__content {
+  @include sp {
+    @include vw(margin-top, 60);
+  }
+}
+
+// --- .c-sec__box：TYPE1
+// --- PC：box内のcontentが1カラム
+.c-sec__box.r-type01 {
+
+  //--- .c-sec__content
+  .c-sec__content {
+    @include pc {
+      margin-top: 30px;
+    }
+  }
+
+  //--- .c-sec__content__item
+  .c-sec__content_item {}
+
+  .c-sec__content + .c-sec__content {
+    @include pc {
+      margin-top: 40px;
+    }
+  }
+}
+
+// --- .c-sec__box：TYPE3
+// --- PC：box内のcontentが2カラム（1:2）
+.c-sec__box.r-type03 {
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  //--- .c-sec__content
+  .c-sec__content {
+    @include pc {
+      width: 250px;
+    }
+    + .c-sec__content {
+      @include pc {
+        width: 500px;
+      }
+    }
+  }
+
+  //--- .c-sec__content__item
+  .c-sec__content_item {}
+
+  //--- reverse
+  &.r-reverse {
+    @include pc {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+// --- .c-sec__box：TYPE4
+// --- PC：box内のcontentが3カラム（2:1:1）
+.c-sec__box.r-type04 {
+  @include pc {
+
+  }
+
+  //--- .c-sec__content
+  .c-sec__content {
+    @include pc {
+      width: 370px;
+    }
+    + .c-sec__content {
+      @include pc {
+        width: 185px;
+      }
+    }
+
+    img {
+      @include sp {
+        width: 100%;
+      }
+    }
+  }
+
+  //--- .c-sec__content__item
+  .c-sec__content_item {}
+
+  //--- reverse
+  &.r-reverse {
+    @include pc {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.c-sec__lyt {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(15, 15 * $lh-m, 30);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(28, 28 * $lh-m, 60);
+  }
+}
+
+// メインコンテンツ内、最後のレイアウトエリアはネガティブマージンなし
+.c-sec__lyt:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+//↓↓↓ 画像、図、表組など、line-heightが無効なものが入るレイアウトエリア
+.c-sec__lyt.r-fig-head {
+  margin-bottom: 0;
+
+  @include pc {
+    margin-top: 30px;
+  }
+
+  @include sp {
+    @include vw(margin-top, 60);
+  }
+}
+
+//↓↓↓ flexコンテナーとしてのレイアウトエリア
+//--- flexコンテナ共通
+.c-sec__lyt[class*="r-flex"] {
+  .c-sec__flex-itm.r-fig-head {
+    margin-bottom: 0;
+  }
+}
+
+//--- コンテンツ内 2column（1:1）
+.c-sec__lyt.r-flex-1-1 {
+  @include pc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  //*** flexコンテナレイアウトの中に入るflexアイテム
+  .c-sec__flex-itm {
+    @include pc {
+      width: 375px;
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(28, 28 * $lh-m, 50);
+    }
+  }
+}
+
+//--- reverse
+.c-sec__lyt[class*="r-flex"].r-reverse {
+  @include pc {
+    flex-direction: row-reverse;
+  }
+}
+
+//↓↓↓ 注釈が入る場合のレイアウトエリア
+.c-sec__lyt.r-note {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(13, 13 * $lh-s, 0);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(22, 22 * $lh-s, 0);
+  }
+}
+
+//↓↓↓ （H6見出し有り、上部の余白を消したい...などのケース）
+.c-sec__lyt.is-no-mt {
+  margin-top: 0;
+}
+
+//↓↓↓ Text link を包むレイアウトケース
+.c-sec__lyt.r-txt-link {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(15, 15 * $lh-s, 0);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(28, 28 * $lh-s, 0);
+  }
+}
+.c-sec__lyt.r-txt-link--small {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(14, 14 * $lh-s, 0);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する
+    @include font-margin-with-tb(26, 26 * $lh-s, 0);
+  }
+}
+
+//↓↓↓ Button list を包むレイアウトケース
+.c-sec__lyt.r-btn-list {
+  margin-top: 0;
+}
+
+//↓↓↓ レイアウト内、パラグラフ
+.c-sec__lyt {
+  p {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(15, 15 * $lh-m, 0);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(28, 28 * $lh-m, 0);
+    }
+  }
+}
+
+//↓↓↓ 隣接
+//--- H2とH3見出しが存在しないc-secの間隔
+.c-hdg--lv2 + .c-sec.r-no-hdg {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(15, 15 * $lh-m, 80);
+  }
+
+  @include sp {
+    line-height: $lh-xs;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-with-tb(28, 28 * $lh-xs, 70);
+  }
+}
+
+.c-hdg--lv3 + .c-sec__lyt {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(15, 15 * $lh-m, 40);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(28, 28 * $lh-m, 60);
+  }
+}
+
+.c-hdg--lv3 + .c-sec__lyt.r-fig-head {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    margin-top: 40px;
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    @include vw(margin-top, 60);
+  }
+}
+
+.c-hdg--lv4 + .c-sec__lyt {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(15, 15 * $lh-m, 40);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(28, 28 * $lh-m, 60);
+  }
+}
+
+.c-hdg--lv5 + .c-sec__lyt {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(15, 15 * $lh-m, 20);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    @include font-margin-top(28, 28 * $lh-m, 50);
+  }
+}
+
+//--- レイアウト内、パラグラフ
+.c-sec__lyt {
+  p + p {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(15, 15 * $lh-m, 30);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(28, 28 * $lh-m, 50);
+    }
+  }
+}
+

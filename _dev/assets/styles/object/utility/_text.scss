@@ -1,0 +1,290 @@
+/*
+---
+name: テキスト調整クラス
+menu: ユーティリティ/調整用クラス/テキスト調整
+category: utility/adjust/text
+tag:
+- utility
+- adjust
+- text
+---
+
+## テキスト
+
+<br>
+
+### .u-txt--strong - 強調テキスト
+```html
+<p class="u-txt">
+  テキスト
+  <span class="u-txt--strong">強調テキスト</span>
+</p>
+```
+
+- 付与したタグのテキストが強調されます
+
+### .u-txt--emphasis - 強調テキスト（赤字）
+```html
+<p class="u-txt">
+  テキスト
+  <span class="u-txt--emphasis">強調テキスト（赤字）</span>
+</p>
+```
+
+- 付与したタグのテキストが赤字で強調されます
+
+
+### .u-txt--normal - 非強調テキスト
+```html
+<p class="u-txt u-txt--strong">
+  強調テキスト
+  <span class="u-txt--normal">非強調テキスト</span>
+</p>
+```
+
+- 強調されているテキスト内で通常の表示を行いたい場合に指定します
+
+
+### .u-txt--uline - 下線テキスト
+```html
+<p class="u-txt">
+  テキスト
+  <span class="u-txt--uline">下線テキスト</span>
+</p>
+```
+
+- テキストに下線が適用されます
+
+
+### .u-txt--nline - 非下線テキスト
+```html
+<p class="u-txt">
+  <span class="u-txt--nline">非下線テキスト</span>
+</p>
+```
+
+- 下線が適用されているタグの下線をとりたい場合に指定します
+
+
+## インデント
+
+<br>
+
+### .u-indent--xx - 通常インデント
+```html
+<div class="u-txt">
+  <p class="u-indent--1">１通常インデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+```html
+<div class="u-txt">
+  <p class="u-indent--1half">１文字半通常インデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+```html
+<div class="u-txt">
+  <p class="u-indent--2">２文字通常インデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+### .u-indent--disc - ・（中黒）インデント
+```html
+<div class="u-txt">
+  <p class="u-indent--disc">自動的に・（中黒）が適用されますインデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+### .u-indent--notice - ※（アスタリスク）インデント
+```html
+<div class="u-txt">
+  <p class="u-indent--notice">自動的に※（アスタリスク）が適用されますインデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+### .u-indent--prefix - (0)（プレフィックス）インデント
+```html
+<div class="u-txt">
+  <p class="u-indent--prefix"><span class="r-prefix">(1)</span>spanタグで囲った部分がインデントとして機能します。インデントテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+- インデントを使用したい場合に指定します
+
+*/
+
+.u-txt {
+  @include pc{
+    font-size: 14px;
+  }
+  @include sp{
+    @include font-vw(28);
+  }
+  &--pc {
+    @include pc{
+      font-size: 14px;
+    }
+  }
+  &--sp {
+    @include sp{
+      @include font-vw(28);
+    }
+  }
+  &--strong {
+    font-weight: bold !important;
+  }
+  &--emphasis {
+    color: #e4002b !important;
+  }
+  &--normal {
+    font-weight: normal !important;
+  }
+  &--uline {
+    text-decoration: underline !important;
+  }
+  &--nline {
+    text-decoration: none !important;
+  }
+  &__color {
+    &--default {
+      color: $clr-txt !important;
+    }
+  }
+  &__small {
+    @include pc {
+      font-size: 12px;
+    }
+    @include sp {
+      @include font-vw(22);
+    }
+    &--pc {
+      @include pc{
+        font-size: 12px;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include font-vw(9);
+      }
+    }
+  }
+  &__midium {
+    @include pc{
+      font-size: 18px;
+    }
+    @include sp{
+      @include font-vw(34);
+    }
+    &--pc {
+      @include pc{
+        font-size: 18px;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include font-vw(34);
+      }
+    }
+  }
+  &__large {
+    @include pc{
+      font-size: 24px;
+    }
+    @include sp{
+      @include font-vw(18);
+    }
+    &--pc {
+      @include pc{
+        font-size: 24px;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include font-vw(18);
+      }
+    }
+  }
+  &__xlarge {
+    @include pc{
+      font-size: 30px;
+    }
+    @include sp{
+      @include font-vw(24);
+    }
+    &--pc {
+      @include pc{
+        font-size: 30px;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include font-vw(24);
+      }
+    }
+  }
+}
+.u-indent {
+  &--1 {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  &--1half {
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+  }
+  &--2 {
+    padding-left: 2em;
+    text-indent: -2em;
+  }
+  &--disc {
+    position: relative;
+    @include pc{
+      padding-left: 1em;
+    }
+    @include sp{
+      padding-left: 1em;
+    }
+    &::before {
+      content: '\30fb';
+      position: absolute;
+      @include pc{
+        margin-left: -1em;
+      }
+      @include sp{
+        margin-left: -1em;
+      }
+    }
+  }
+  &--notice {
+    position: relative;
+    padding-left: 1em;
+    &::before {
+      content: '\203b';
+      position: absolute;
+      @include pc{
+        margin-left: -1em;
+      }
+      @include sp{
+        margin-left: -1em;
+      }
+    }
+    &2 {
+      position: relative;
+      text-indent: -1em;
+      padding-left: 2em;
+      &::before {
+        content: '\203b';
+        position: absolute;
+      }
+    }
+  }
+  &--prefix {
+    position: relative;
+    padding-left: 2em;
+    .r-prefix {
+      position: absolute;
+      left: 0;
+    }
+  }
+}

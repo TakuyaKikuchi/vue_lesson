@@ -1,0 +1,120 @@
+/*
+---
+name: clearfix
+menu: ユーティリティ/調整用クラス/レイアウト
+category: utility/adjust/layout
+tag:
+- utility
+- adjust
+- layout
+---
+
+```html
+<div class="u-clearfix"></div>
+```
+
+- clearfix用のユーティリティクラスです
+
+*/
+
+.u-clearfix {
+  @include clearfix;
+}
+
+/*
+---
+name: replace-deviceimage
+menu: ユーティリティ/調整用クラス/レイアウト
+category: utility/adjust/layout
+tag:
+- utility
+- adjust
+- layout
+---
+
+```html
+<img data-module="replace-deviceimage" src="/assets/img/index/slider-img-01_pc.jpg" alt="">
+```
+
+- ブレークポイントごとに画像を切り替えるためのユーティリティクラスです
+- data-module="replace-deviceimage" を指定し、末尾に「_pc」のついたファイルをsrcに指定すると、ブレークポイントごとに「_pc」「_sp」のファイル名が差し替わります。
+
+*/
+
+
+/*
+---
+name: scroll-image
+category: utility/adjust/layout
+tag:
+- utility
+- adjust
+- layout
+---
+
+```html
+<div class="u-overflow-scroll">
+  <div class="r-inner">
+    <img src="/assets/img/index/slider-img-01_pc.jpg" alt="">
+  </div>
+</div>
+```
+
+### Large
+
+```html
+<div class="u-overflow-scroll">
+  <div class="r-inner is-large">
+    <img src="/assets/img/index/slider-img-01_pc.jpg" alt="">
+  </div>
+</div>
+```
+
+### Small
+
+```html
+<div class="u-overflow-scroll">
+  <div class="r-inner is-small">
+    <img src="/assets/img/index/slider-img-01_pc.jpg" alt="">
+  </div>
+</div>
+```
+
+- スクロールさせるためのユーティリティクラスです
+
+*/
+
+.u-overflow-scroll {
+  -webkit-print-color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+  @include sp{
+    width: 100%;
+    overflow-x: scroll;
+  }
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ddd;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+  }
+  .r-inner {
+    @include sp{
+      width: 300vw;
+      @include vw(margin-bottom, 20);
+    }
+    &.is-large {
+      @include sp{
+        width: 400vw;
+      }
+    }
+    &.is-small {
+      @include sp{
+        width: 200vw;
+      }
+    }
+  }
+}

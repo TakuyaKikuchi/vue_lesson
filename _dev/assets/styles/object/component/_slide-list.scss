@@ -1,0 +1,45 @@
+// base
+// TODO：コンポーネントにするか？プロジェクトにするか？
+// TODO：もしくは他のコンポーネントと共通化できるか？
+.c-slide-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// type1 PC：mainが2column時の3column SP：2column
+.c-slide-list.r-type01 {
+  .c-slide-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 48%;
+      @include vw(margin-top, 26);
+      margin-right: 4%;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type2 PC：mainが2column時の3column SP：2column
+.c-slide-list.r-type02 {}
+
+// type3 mainが1column時の3column
+.c-slide-list.r-type03 {}

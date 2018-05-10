@@ -1,0 +1,60 @@
+//ブレークポイント
+@mixin pc($viewport:$breakpoint) {
+  @media screen and (min-width: $viewport) {
+    @content;
+  }
+  @media print {
+    @content;
+  }
+}
+
+@mixin sp($viewport:$breakpoint) {
+  @media screen and (max-width: $viewport - 1) {
+    @content;
+  }
+}
+
+@mixin vp($viewport1,$viewport2) {
+  @media screen and (min-width: $viewport1) and (max-width: $viewport2) {
+    @content;
+  }
+}
+
+@mixin is-hover-txt($clr:$clr-txt-overlay) {
+  text-decoration: underline;
+  color: $clr;
+}
+
+@mixin landscapehack {
+  @media screen and (orientation:landscape) {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color:$color;
+    }
+}

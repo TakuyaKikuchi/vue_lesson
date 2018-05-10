@@ -1,0 +1,217 @@
+//--- c-slider
+.c-slider {
+  &__item {
+    outline: none !important;
+  }
+  &__item__fig {
+    line-height: 0;
+    // TODO： カラー変数入れる
+    border: 1px solid #ededed;
+  }
+
+  &__item__txt {
+    text-align: center;
+
+    @include pc {
+      margin-top: 58px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 105);
+    }
+  }
+
+  &__arrow,
+  &__arrow-separator,
+  &__indicator  {
+    position: absolute;
+    z-index: 1;
+
+    @include pc {
+      top: 468px;
+      height: 17px;
+    }
+
+    @include sp {
+      @include vw(top, 428);
+      @include vw(height, 32);
+    }
+  }
+
+  &__indicator {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      position: relative;
+      height: inherit;
+      transition: background-color .25s ease;
+
+      @include pc {
+        width: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      @include sp {
+        @include vw(width, 30);
+        @include vw(margin-right, 20);
+      }
+
+      &[aria-hidden="true"] {
+        opacity: 1;
+      }
+
+      button {
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: inherit;
+        height: 1px;
+        font-size: 0;
+        line-height: 0;
+        // TODO： カラー変数入れる
+        background-color: #aaa;
+        transform: translate(0, -50%);
+
+        &:hover,
+        &:active,
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        outline: none;
+        border: none;
+
+        button {
+          // TODO： カラー変数入れる
+          background-color: #e40018;
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: #e40018;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    display: block;
+
+    @include pc {
+      width: 17px;
+    }
+
+    @include sp {
+      @include vw(width, 32);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+    }
+
+    &::after {
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      // TODO： カラー変数入れる
+      border-bottom: 1px solid #e40015;
+      transform: translate(0, -50%);
+    }
+
+    &::before {
+      // TODO： カラー変数入れる
+      border-bottom: 1px solid #e40015;
+
+      @include pc {
+        top: 3.5px;
+        width: 10px;
+        height: 10px;
+      }
+
+      @include sp {
+        @include vw(top, 7);
+        @include vw(width, 18);
+        @include vw(height, 18);
+      }
+    }
+
+    &.r-prev {
+      @include pc {
+        right: 58px;
+      }
+
+      @include sp {
+        @include vw(right, 100);
+      }
+
+      &::before {
+        // TODO： カラー変数入れる
+        border-left: 1px solid #e40015;
+        transform: rotate(45deg);
+
+        @include pc {
+          left: 0;
+        }
+
+        @include sp {
+          @include vw(left, 2);
+        }
+      }
+    }
+
+    &.r-next {
+      @include pc {
+        right: 3px;
+      }
+
+      @include sp {
+        @include vw(right, 3);
+      }
+
+      &::before {
+        // TODO： カラー変数入れる
+        border-right: 1px solid #e40015;
+        transform: rotate(-45deg);
+
+        @include pc {
+          right: 0;
+        }
+
+        @include sp {
+          @include vw(right, 2);
+        }
+      }
+    }
+
+    &.is-inactive {
+      opacity: .1;
+      cursor: default;
+    }
+  }
+
+  &__arrow-separator {
+    display: block;
+    width: 1px;
+    // TODO： カラー変数入れる
+    background-color: #e40015;
+
+    @include pc {
+      right: 38px;
+    }
+
+    @include sp {
+      @include vw(right, 65);
+    }
+  }
+}

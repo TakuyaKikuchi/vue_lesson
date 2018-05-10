@@ -1,0 +1,79 @@
+// ==============================
+//   reset
+// ==============================
+
+
+html{
+ margin: 0;
+ padding: 0;
+}
+body{
+ margin: 0;
+ padding: 0;
+}
+
+figure{
+ margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+ margin: 0;
+ padding: 0;
+ line-height: 1;
+ font-weight: normal;
+}
+
+ul, ol{
+ margin: 0;
+ padding-left: 0;
+
+ li{
+   margin-left: 0;
+   list-style-type: none;
+ }
+}
+
+dl, dt, dd{
+ margin: 0;
+ padding: 0;
+}
+
+a{
+ img{
+   border:none;
+   margin: 0;
+   padding: 0;
+ }
+}
+
+p{
+ margin:0;
+}
+
+img{
+ line-height: 1;
+}
+
+hr{
+ border: none;
+ margin: 0;
+ padding: 0;
+}
+
+button{
+ line-height: inherit;
+ margin:0px;
+ padding:0px;
+ border:0px;
+}
+
+textarea{
+	border:none;
+	border-image: none;
+	resize:none;
+}
+
+table {
+  border-collapse:collapse;
+  border:0px;
+}

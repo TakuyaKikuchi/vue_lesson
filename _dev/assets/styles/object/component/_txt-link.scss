@@ -1,0 +1,252 @@
+//TODO： 全体見直し → 前後に付くアイコンのサイズを相対指定にする
+//↓↓↓ Text link
+//--- 通常
+.c-txt-link {
+  position: relative;
+  line-height: $lh-s;
+  color: $clr-kp-red;
+
+  .c-txt-link__href {
+    display: inline-block;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 1;
+      border-right: 1px solid $clr-kp-red;
+      border-bottom: 1px solid $clr-kp-red;
+      transform: rotate(-45deg);
+    }
+
+    @include pc {
+      padding-left: 13px;
+
+      &::before {
+        width: 6px;
+        height: 6px;
+        margin-top: -3px;
+      }
+    }
+
+    @include sp {
+      @include vw(padding-left, 23);
+
+      &::before {
+        @include vw(width, 9);
+        @include vw(height, 9);
+        @include vw(margin-top, -3);
+      }
+    }
+  }
+}
+
+.c-txt-link:not([class*="r-document"]) {
+  .c-txt-link__href[target="_blank"] {
+    padding-right: 1.2em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE2MDQ1MSwgMjAxNy8wNS8wNi0wMTowODoyMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkM2ZjMjIwYy04NTQxLTRiYzktYTA0Ny1kMzBkMDM4M2NhYTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjE5MjFGN0FDQkE4MTFFNzhFNDdDODYyNjdDMjI3MkIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjE5MjFGNzlDQkE4MTFFNzhFNDdDODYyNjdDMjI3MkIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpiY2YwYzAwNC1iNThlLTRmZTUtODIxOC0wNzZiMzFhYjUyODgiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDplMmE2N2ViMy1mNGJlLTExN2EtODQxNS1lY2YzOWE4ZjY5NmQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz71iGIhAAAABlBMVEXkACv///9fP+52AAAAAnRSTlP/AOW3MEoAAAAoSURBVHjaYmAEAgYUgEuEEQaoKALiUU8E3dWYIigAqwiaakwRgAADAGR/AKLU2tzzAAAAAElFTkSuQmCC') no-repeat right 53%;
+    background-size: 0.8em auto;
+  }
+}
+
+//--- フォントサイズS
+.c-txt-link.is-small {
+  .c-txt-link__href {
+    @include pc {
+      padding-left: 12px;
+      font-size: $fs-s-pc;
+
+      &::before {
+        width: 5px;
+        height: 5px;
+        margin-top: -2px;
+      }
+    }
+
+    @include sp {
+      @include vw(padding-left, 21);
+      font-size: $fs-s-sp;
+
+      &::before {
+        @include vw(width, 8);
+        @include vw(height, 8);
+        @include vw(margin-top, -3);
+      }
+    }
+  }
+}
+
+//--- 黒字
+.c-txt-link.is-usual {
+  color: $clr-txt;
+
+  &::before {
+    border-color: $clr-txt;
+  }
+}
+
+//--- 先頭分の間隔をあけるケース
+.c-txt-link.is-first-margin {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(15, 15 * $lh-s, 30);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(28, 28 * $lh-s, 60);
+  }
+}
+.c-txt-link.is-small.is-first-margin {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(15, 15 * $lh-s, 30);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(26, 26 * $lh-s, 60);
+  }
+}
+
+//--- 間隔をあけるケース（is-spaceを付与）
+.c-txt-link.is-space {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(15, 15 * $lh-s, 20);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(28, 28 * $lh-s, 30);
+  }
+}
+
+.c-txt-link.is-small.is-space {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(14, 14 * $lh-s, 20);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-top(26, 26 * $lh-s, 30);
+  }
+}
+
+.c-txt-link.is-space.is-first-margin {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(15, 15 * $lh-s, 30);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(28, 28 * $lh-s, 60);
+  }
+}
+.c-txt-link.is-space.is-small.is-first-margin {
+  @include pc {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(14, 14 * $lh-s, 30);
+  }
+
+  @include sp {
+    // TODO： font-margin（or padding）を変数対応
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    @include font-margin-with-tb(26, 26 * $lh-s, 60);
+  }
+}
+
+//--- ドキュメントアイコン共通
+.c-txt-link[class*="r-document"] {
+  .c-txt-link__href {
+    &::after {
+      content: '';
+      display: inline-block;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+
+//--- PDFアイコン
+.c-txt-link.r-document__pdf {
+  .c-txt-link__href {
+    &::after {
+      background-image: url(/assets/img/common/icon_document_pdf-01.svg);
+    }
+
+    @include pc {
+      &::after {
+        top: 1px;
+        width: 12px;
+        height: 14px;
+        margin-left: 8px;
+      }
+    }
+
+    @include sp {
+      &::after {
+        @include vw(top, 1);
+        @include vw(width, 19);
+        @include vw(height, 23);
+        @include vw(margin-left, 8);
+      }
+    }
+  }
+}
+
+.c-txt-link.is-small.r-document__pdf {
+  .c-txt-link__href {
+    @include pc {
+      &::after {
+        top: 1px;
+        width: 11px;
+        height: 13px;
+        margin-left: 7px;
+      }
+    }
+
+    @include sp {
+      &::after {
+        @include vw(width, 18);
+        @include vw(height, 22);
+        @include vw(margin-left, 6);
+      }
+    }
+  }
+}
+
+.c-txt-link--inline {
+  color: #e4002b;
+  text-decoration: underline;
+  cursor: pointer;
+
+  @include pc {
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &.is-color-black {
+    color: $clr-txt;
+  }
+}

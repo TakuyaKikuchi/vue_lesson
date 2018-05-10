@@ -1,0 +1,198 @@
+// 関連リンク
+.c-related {
+  .c-related__ttl {
+    @include pc {
+      line-height: $lh-s;
+
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(19, 19 * $lh-s, 80);
+    }
+
+    @include sp {
+      line-height: $lh-xs;
+
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(36, 36 * $lh-xs, 120);
+    }
+  }
+
+  .c-related__list {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $clr-middlegray;
+    border-bottom: 1px solid $clr-middlegray;
+
+    @include pc {
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      margin-top: 30px;
+      padding: 30px 0;
+    }
+
+    @include sp {
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include vw(margin-top, 60);
+      @include vw(padding-top, 40);
+      @include vw(padding-bottom, 40);
+    }
+  }
+
+  .c-related__list__itm {
+    @include pc {
+      width: calc((100% - 35px) / 2);
+      margin-right: 34px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(margin-top, 40);
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-related__list__itm__link {
+    display: block;
+    overflow: hidden;
+
+    @include pc {
+      transition: opacity .25s ease;
+    }
+
+    &:hover {
+      @include pc {
+        opacity: .6;
+        text-decoration: none;
+      }
+    }
+
+    // TODO： 外部リンクアイコン、空DOMに変更
+    &[target='_blank'] {
+      .p-education-card-list__item__ttl {
+        position: relative;
+
+        @include pc {
+          padding-right: 20px;
+        }
+
+        @include sp {
+          @include vw(padding-right, 25);
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+
+          @include pc {
+            width: 8px;
+            height: 8px;
+          }
+
+          @include sp {
+            @include vw(width, 14);
+            @include vw(height, 14);
+          }
+        }
+
+        &::before {
+          right: 0;
+          border: 1px solid #333;
+
+          @include pc {
+            margin-top: -2px;
+          }
+
+          @include sp {
+            @include vw(margin-top, -5);
+          }
+        }
+
+        &::after {
+          border-bottom: 1px solid #333;
+          border-left: 1px solid #333;
+
+          @include pc {
+            right: 3px;
+            margin-top: 1px;
+          }
+
+          @include sp {
+            @include vw(right, 4);
+            @include vw(margin-top, 1);
+          }
+        }
+      }
+    }
+  }
+
+  .c-related__list__itm__img {
+    float: left;
+    clear: left;
+
+    @include pc {
+      width: 133px;
+      height: 133px;
+    }
+
+    @include sp {
+      @include vw(width, 220);
+      @include vw(height, 220);
+    }
+  }
+
+  .c-related__list__itm__cnt {
+    @include pc {
+      padding-left: 162px;
+    }
+
+    @include sp {
+      @include vw(padding-left, 248);
+    }
+  }
+
+  .c-related__list__itm__ttl {
+    display: block;
+    line-height: $lh-xs;
+
+    @include pc {
+      font-weight: bold;
+
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(19, 19 * $lh-xs, 0);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(32, 32 * $lh-xs, 0);
+    }
+  }
+
+  .c-related__list__itm__txt {
+    line-height: $lh-s;
+
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(15, 15 * $lh-s, 20);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-margin-with-tb(28, 28 * $lh-s, 20);
+    }
+  }
+}

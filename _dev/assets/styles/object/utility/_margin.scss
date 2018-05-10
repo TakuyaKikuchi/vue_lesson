@@ -1,0 +1,552 @@
+
+.u-mt {
+  &XS {
+    @include pc {
+      margin-top: 10px !important;
+    }
+    @include sp {
+      @include vw(margin-top, 10, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-top: 10px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-top, 10, !important);
+      }
+    }
+  }
+  &S {
+    @include pc{
+      margin-top: 20px !important;
+    }
+    @include sp{
+      @include vw(margin-top,15, !important);
+    }
+    &--pc {
+      @include pc{
+        margin-top: 20px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(margin-top,15, !important);
+      }
+    }
+  }
+  &M {
+    @include pc{
+      margin-top: 30px !important;
+    }
+    @include sp{
+      @include vw(margin-top,40, !important);
+    }
+    &--pc {
+      @include pc{
+        margin-top: 30px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(margin-top,40, !important);
+      }
+    }
+  }
+  &L {
+    @include pc{
+      margin-top: 50px !important;
+    }
+    @include sp{
+      @include vw(margin-top,70, !important);
+    }
+    &--pc {
+      @include pc{
+        margin-top: 50px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(margin-top,70, !important);
+      }
+    }
+  }
+  &XL {
+    @include pc{
+      margin-top: 80px !important;
+    }
+    @include sp{
+      @include vw(margin-top,100, !important);
+    }
+    &--pc {
+      @include pc{
+        margin-top: 80px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(margin-top,100, !important);
+      }
+    }
+  }
+}
+
+.u-mb {
+  &XS {
+    @include pc {
+      margin-bottom: 10px !important;
+    }
+    @include sp {
+      @include vw(margin-bottom, 10, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-bottom: 10px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-bottom, 10, !important);
+      }
+    }
+  }
+  &S {
+    @include pc {
+      margin-bottom: 20px !important;
+    }
+    @include sp {
+      @include vw(margin-bottom,15, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-bottom: 20px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-bottom,15, !important);
+      }
+    }
+  }
+  &M {
+    @include pc {
+      margin-bottom: 30px !important;
+    }
+    @include sp {
+      @include vw(margin-bottom, 40, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-bottom: 30px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-bottom, 40, !important);
+      }
+    }
+  }
+  &L {
+    @include pc {
+      margin-bottom: 50px !important;
+    }
+    @include sp {
+      @include vw(margin-bottom,70, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-bottom: 50px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-bottom,70, !important);
+      }
+    }
+  }
+  &XL {
+    @include pc {
+      margin-bottom: 80px !important;
+    }
+    @include sp {
+      @include vw(margin-bottom,100, !important);
+    }
+    &--pc {
+      @include pc {
+        margin-bottom: 80px !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        @include vw(margin-bottom,100, !important);
+      }
+    }
+  }
+}
+
+.u-pt {
+  &S {
+    @include pc{
+      padding-top: 20px !important;
+    }
+    @include sp{
+      @include vw(padding-top,15, !important);
+    }
+    &--pc {
+      @include pc{
+        padding-top: 20px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(padding-top,15, !important);
+      }
+    }
+  }
+  &M {
+    @include pc{
+      padding-top: 30px !important;
+    }
+    @include sp{
+      @include vw(padding-top,40, !important);
+    }
+    &--pc {
+      @include pc{
+        padding-top: 30px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(padding-top,40, !important);
+      }
+    }
+  }
+  &L {
+    @include pc{
+      padding-top: 50px !important;
+    }
+    @include sp{
+      @include vw(padding-top,70, !important);
+    }
+    &--pc {
+      @include pc{
+        padding-top: 50px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(padding-top,70, !important);
+      }
+    }
+  }
+  &XL {
+    @include pc{
+      padding-top: 80px !important;
+    }
+    @include sp{
+      @include vw(padding-top,100, !important);
+    }
+    &--pc {
+      @include pc{
+        padding-top: 80px !important;
+      }
+    }
+    &--sp {
+      @include sp{
+        @include vw(padding-top,100, !important);
+      }
+    }
+  }
+}
+
+.u-pb {
+  &S {
+    @include pc{
+      padding-bottom: 20px !important;
+    }
+    @include sp{
+      @include vw(padding-bottom,15, !important);
+    }
+    &--pc {
+      padding-bottom: 20px !important;
+    }
+    &--sp {
+      @include vw(padding-bottom,15, !important);
+    }
+  }
+  &M {
+    @include pc{
+      padding-bottom: 30px !important;
+    }
+    @include sp{
+      @include vw(padding-bottom,40, !important);
+    }
+    &--pc {
+      padding-bottom: 30px !important;
+    }
+    &--sp {
+      @include vw(padding-bottom,40, !important);
+    }
+  }
+  &L {
+    @include pc{
+      padding-bottom: 50px !important;
+    }
+    @include sp{
+      @include vw(padding-bottom,70, !important);
+    }
+    &--pc {
+      padding-bottom: 50px !important;
+    }
+    &--sp {
+      @include vw(padding-bottom,70, !important);
+    }
+  }
+  &XL {
+    @include pc{
+      padding-bottom: 80px !important;
+    }
+    @include sp{
+      @include vw(padding-bottom,100, !important);
+    }
+    &--pc {
+      padding-bottom: 80px !important;
+    }
+    &--sp {
+      @include vw(padding-bottom,100, !important);
+    }
+  }
+}
+
+.u-m {
+  @for $i from 0 through 20 {
+    $vp: 100 / $screensize;
+    &g {
+      &#{$i*5} {
+        @include pc {
+          margin: #{$i*5}px !important;
+        }
+        @include sp{
+          margin: #{$i*5}px !important;
+          margin: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            margin: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            margin: #{$i*5}px !important;
+            margin: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &t {
+      &#{$i*5} {
+        @include pc {
+          margin-top: #{$i*5}px !important;
+        }
+        @include sp{
+          margin-top: #{$i*5}px !important;
+          margin-top: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            margin-top: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            margin-top: #{$i*5}px !important;
+            margin-top: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &b {
+      &#{$i*5} {
+        @include pc {
+          margin-bottom: #{$i*5}px !important;
+        }
+        @include sp{
+          margin-bottom: #{$i*5}px !important;
+          margin-bottom: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            margin-bottom: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            margin-bottom: #{$i*5}px !important;
+            margin-bottom: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &l {
+      &#{$i*5} {
+        @include pc {
+          margin-left: #{$i*5}px !important;
+        }
+        @include sp{
+          margin-left: #{$i*5}px !important;
+          margin-left: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            margin-left: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            margin-left: #{$i*5}px !important;
+            margin-left: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &r {
+      &#{$i*5} {
+        @include pc {
+          margin-right: #{$i*5}px !important;
+        }
+        @include sp{
+          margin-right: #{$i*5}px !important;
+          margin-right: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            margin-right: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            margin-right: #{$i*5}px !important;
+            margin-right: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.u-p {
+  @for $i from 0 through 20 {
+    $vp: 100 / $screensize;
+    &d {
+      &#{$i*5} {
+        @include pc {
+          padding: #{$i*5}px !important;
+        }
+        @include sp{
+          padding: #{$i*5}px !important;
+          padding: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            padding: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            padding: #{$i*5}px !important;
+            padding: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &t {
+      &#{$i*5} {
+        @include pc {
+          padding-top: #{$i*5}px !important;
+        }
+        @include sp{
+          padding-top: #{$i*5}px !important;
+          padding-top: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            padding-top: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            padding-top: #{$i*5}px !important;
+            padding-top: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &b {
+      &#{$i*5} {
+        @include pc {
+          padding-bottom: #{$i*5}px !important;
+        }
+        @include sp{
+          padding-bottom: #{$i*5}px !important;
+          padding-bottom: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            padding-bottom: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            padding-bottom: #{$i*5}px !important;
+            padding-bottom: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &l {
+      &#{$i*5} {
+        @include pc {
+          padding-left: #{$i*5}px !important;
+        }
+        @include sp{
+          padding-left: #{$i*5}px !important;
+          padding-left: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            padding-left: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            padding-left: #{$i*5}px !important;
+            padding-left: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+    &r {
+      &#{$i*5} {
+        @include pc {
+          padding-right: #{$i*5}px !important;
+        }
+        @include sp{
+          padding-right: #{$i*5}px !important;
+          padding-right: #{$vp*$i*5}vw !important;
+        }
+        &--pc {
+          @include pc {
+            padding-right: #{$i*5}px !important;
+          }
+        }
+        &--sp {
+          @include sp{
+            padding-right: #{$i*5}px !important;
+            padding-right: #{$vp*$i*5}vw !important;
+          }
+        }
+      }
+    }
+  }
+}

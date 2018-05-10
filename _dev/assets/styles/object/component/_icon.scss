@@ -1,0 +1,31 @@
+.c-icn {
+  &__text {
+    transition: opacity .2s;
+  }
+  &__search {
+    a {
+      // background-image: get-svg-icon(search-01);
+      @include pc {
+      }
+      @include sp {
+      };
+    }
+  }
+  &__tour {
+    color: #e4002b;
+    border: 1px solid #e4002b;
+    @include pc {
+      padding: 0 7px;
+      font-size: 14px;
+      border-radius: 10px;
+      line-height: 18px;
+    }
+    @include sp {
+      @include vw(padding-left, 12);
+      @include vw(padding-right, 12);
+      @include font-vw(20);
+      @include vw(border-radius, 30);
+      @include vw(line-height, 30);
+    }
+  }
+}

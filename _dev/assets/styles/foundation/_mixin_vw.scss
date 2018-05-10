@@ -1,0 +1,203 @@
+$base-fs: 15;
+
+// 幅計算（パーセンテージ）
+@function max-percentage($value) {
+  @return ($value / $screensize) * 100%;
+}
+
+// vw計算
+@function get-vw($size, $viewport:$screensize){
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1vw;
+}
+// パーセンテージ計算
+@function get-per($size, $viewport:$screensize){
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1%;
+}
+
+// 汎用vw変換mixin
+@mixin vw($properties, $value1:'', $value2:'') {
+  @if $value2 == '' {
+    @if type-of($value1) != number {
+      #{$properties}: $value1;
+    } @else {
+      #{$properties}: ($value1 / 2) + px;
+    }
+    #{$properties}: get-vw($value1);
+  } @else if type-of($value2) != number {
+    @if type-of($value1) != number {
+      #{$properties}: $value1 $value2;
+    } @else {
+      #{$properties}: ($value1 / 2) + px $value2;
+    }
+    #{$properties}: get-vw($value1) $value2;
+  } @else if type-of($value1) != number {
+    @if type-of($value2) != number {
+      #{$properties}: $value1 $value2;
+    } @else {
+      #{$properties}: $value1 ($value2 / 2) + px;
+    }
+    #{$properties}: $value1 get-vw($value2);
+  } @else {
+    #{$properties}: ($value1 / 2) + px ($value2 / 2) + px;
+    #{$properties}: get-vw($value1) get-vw($value2);
+  }
+}
+
+// フォント用vw計算
+@mixin font-vw($font_size: $base-fs){
+	font-size: ($font_size / 2) + px;
+	font-size: get-vw($font_size);
+}
+
+@mixin font-margin($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  margin-bottom:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  margin-top:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    margin-bottom: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    margin-top: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  };
+  @include sp(){
+    margin-bottom: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    margin-top: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-margin-top($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  margin-top:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    margin-top: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  }
+  @include sp(){
+    margin-top: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-margin-bottom($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  margin-bottom:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    margin-bottom: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  }
+  @include sp(){
+    margin-bottom: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-padding($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  padding-bottom:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  padding-top:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    padding-bottom: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    padding-top: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  };
+  @include sp(){
+    padding-bottom: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    padding-top: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-padding-top($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  padding-top:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    padding-top: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  };
+  @include sp(){
+    padding-top: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-padding-bottom($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  padding-bottom:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  line-height: $lh;
+  @include pc {
+    padding-bottom: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  };
+  @include sp(){
+    padding-bottom: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+@mixin font-margin-with-tb($font_size, $pLineHeight, $baseMargin) {
+  $pFontSize: $font_size;
+  $lh: $pLineHeight / $pFontSize;
+  line-height: $lh;
+  margin-top:
+  (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  margin-bottom:
+  ((0 - 1) - (($pLineHeight - $pFontSize) / 2)) + px;
+  @include pc {
+    margin-top: calc(#{$baseMargin - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    margin-bottom: calc(#{0 - 1 + px} - (((#{$pFontSize / $base-fs + rem} * #{$lh}) - #{$pFontSize / $base-fs + rem}) / 2));
+    font-size: $pFontSize / $base-fs + rem;
+  }
+  @include sp(){
+    margin-top: (($baseMargin - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    margin-bottom: ((0 - 1) - (($pLineHeight - $pFontSize) / 2)) / $screensize * 100 + vw;
+    @include font-vw($pFontSize);
+  }
+}
+
+// width vw計算
+@mixin wd-vw($size){
+  width: ($size/2) + px;
+  width: get-vw($size);
+}
+
+// height vw計算
+@mixin he-vw($size){
+  height: ($size/2) + px;
+  height: get-vw($size);
+}
+
+@mixin margin-vw($top:0,$right:0,$bottom:0,$left:0,$auto:false){
+  @if $auto != false {
+    margin: ($top/2)+px auto ($bottom/2)+px auto;
+    margin: get-vw($top) auto get-vw($bottom) auto;
+  } @else {
+    margin: $top+px $right+px $bottom+px $left+px;
+    margin: get-vw($top) get-vw($right) get-vw($bottom) get-vw($left);
+  }
+}
+
+@mixin padding-vw($top:0,$right:0,$bottom:0,$left:0){
+  padding: ($top/2)+px ($right/2)+px ($bottom/2)+px ($left/2)+px;
+  padding: get-vw($top) get-vw($right) get-vw($bottom) get-vw($left);
+}

@@ -1,0 +1,13 @@
+.l-main-visual {
+  @include pc {
+    margin-bottom: 26px;
+  }
+
+  @include sp {
+    @include vw(margin-bottom, 26);
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

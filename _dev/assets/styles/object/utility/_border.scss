@@ -1,0 +1,28 @@
+.u-border {
+  &-top-n {
+    border-top: none !important;
+    &--pc {
+      @include pc {
+        border-top: none !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        border-top: none !important;
+      }
+    }
+  }
+  &-bottom-n {
+    border-bottom: none !important;
+    &--pc {
+      @include pc {
+        border-bottom: none !important;
+      }
+    }
+    &--sp {
+      @include sp {
+        border-bottom: none !important;
+      }
+    }
+  }
+}

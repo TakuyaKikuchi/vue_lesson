@@ -1,0 +1,758 @@
+/*
+---
+name: ボタン
+category: component/button
+tag:
+- component
+- button
+---
+
+```html
+<div class="c-btn-list r-type01 r-1line">
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン1カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+</div>
+<!-- /.c-btn-list -->
+```
+
+- ルールを記載
+
+### 2カラム
+
+```html
+<div class="c-btn-list r-type02 r-1line">
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン2カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン2カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+</div>
+<!-- /.c-btn-list -->
+```
+
+- ルールを記載
+
+### 3カラム
+
+```html
+<div class="c-btn-list r-type03 r-1line">
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン3カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン3カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン3カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+</div>
+<!-- /.c-btn-list -->
+```
+
+- ルールを記載
+
+### 2カラム・2行
+
+```html
+<div class="c-btn-list r-type02 r-2line">
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン2<br>カラム2行</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン2<br>カラム2行</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+</div>
+<!-- /.c-btn-list -->
+```
+
+- ルールを記載
+
+### 中央寄せ
+
+```html
+<div class="c-btn-list r-center01 r-type01 r-1line">
+  <div class="c-btn-list__itm">
+    <a href="#" class="c-btn-list__itm__link">
+      <span class="c-btn-list__itm__cnt">ボタン1カラム</span>
+    </a>
+  </div>
+  <!-- /.c-btn-list__itm -->
+</div>
+<!-- /.c-btn-list -->
+```
+
+*/
+
+//↓↓↓ Button list 共通
+.c-btn-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include sp {
+    @include vw(padding-top, 30);
+  }
+}
+
+.c-btn-list__itm {
+  font-weight: bold;
+  line-height: $lh-xs;
+
+  @include pc {
+    // TODO： margin変数（関数？）に変更する（paddingも？）
+    margin-top: 30px;
+  }
+
+  @include sp {
+    width: 100%;
+    @include vw(margin-top, 30);
+  }
+}
+
+//--- Button list item １行ボタン
+.c-btn-list__itm.r-1line {
+  @include pc {
+    height: 46px;
+  }
+  @include sp {
+    @include vw(height, 82);
+  }
+
+  &--pc {
+    @include pc {
+      height: 46px;
+    }
+  }
+
+  &--sp {
+    @include sp {
+      @include vw(height, 82);
+    }
+  }
+}
+
+//--- Button list item ２行ボタン
+.c-btn-list__itm.r-2line {
+  @include pc {
+    height: 62px;
+  }
+  @include sp {
+    @include vw(height, 122);
+  }
+
+  &--pc {
+    @include pc {
+      height: 62px;
+    }
+  }
+
+  &--sp {
+    @include sp {
+      @include vw(height, 122);
+    }
+  }
+}
+
+.c-btn-list__itm__link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: $clr-kp-red;
+  text-decoration: none;
+  border: 1px solid $clr-kp-red;
+  border-radius: 100px;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    border-right: 1px solid $clr-kp-red;
+    border-bottom: 1px solid $clr-kp-red;
+    transform: rotate(-45deg);
+    transition: border-color .65s ease;
+  }
+
+  // TODO： 上書きしてるので後々リファクタ
+  &.r-left-arrow {
+    &::before {
+      transform: translate(0, -50%) rotate(135deg);
+    }
+  }
+
+  @include pc {
+    font-size: $fs-s-pc;
+    transition: color .65s ease;
+
+    &::before {
+      right: 21px;
+      width: 5px;
+      height: 5px;
+      margin-top: -3px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -200%;
+      z-index: 0;
+      width: 150%;
+      height: 450%;
+      border-radius: 50%;
+      background-color: $clr-kp-red;
+      transition: top .65s ease, left .65s ease;
+    }
+
+    // TODO： 上書きしてるので後々リファクタ
+    &.r-left-arrow {
+      &::before {
+        left: 21px;
+      }
+    }
+  }
+
+  @include sp {
+    font-size: $fs-s-sp;
+    @include vw(font-size, 26);
+    @include vw(padding-top, 22);
+    @include vw(padding-bottom, 22);
+
+    &::before {
+      @include vw(right, 50);
+      @include vw(width, 8);
+      @include vw(height, 8);
+    }
+
+    // TODO： 上書きしてるので後々リファクタ
+    &.r-left-arrow {
+      &::before {
+        @include vw(left, 50);
+      }
+    }
+  }
+
+  &[target='_blank'] {
+    &::before {
+      display: none;
+    }
+
+    .c-btn-list__external__icon {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      @include pc {
+        right: 21px;
+        width: 11px;
+        height: 11px;
+      }
+
+      @include sp {
+        @include vw(right, 50);
+        @include vw(width, 16);
+        @include vw(height, 16);
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+
+        @include pc {
+          width: 8px;
+          height: 8px;
+        }
+
+        @include sp {
+          @include vw(width, 12);
+          @include vw(height, 12);
+        }
+      }
+
+      &::before {
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid $clr-kp-red;
+        border-left: 1px solid $clr-kp-red;
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+        border: 1px solid $clr-kp-red;
+      }
+    }
+  }
+
+  @include pc {
+    &:hover {
+      color: #fff;
+      transition: color .5s ease .08s;
+
+      &::before {
+        border-color: #fff;
+        transition: border-color .4s ease .185s;
+      }
+
+      &::after {
+        top: -100%;
+        left: -20%;
+      }
+
+      .c-btn-list__external__icon {
+        &::before,
+        &::after {
+          border-color: #fff;
+          transition: border-color .4s ease .185s;
+        }
+      }
+    }
+  }
+}
+
+//↓↓↓ PDFリンク
+.c-btn-list__itm.r-document__pdf {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border: none;
+    background-image: url(/assets/img/common/icon_document_pdf-01.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translate(0, -50%);
+    transition: background-image 0s ease .1s;
+
+    @include pc {
+      right: 15px;
+      width: 10px;
+      height: 12px;
+    }
+
+    @include sp {
+      @include vw(right, 50);
+      @include vw(width, 16);
+      @include vw(height, 18);
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &::before {
+      @include pc {
+        transition: background-image 0s ease .35s;
+        background-image: url(/assets/img/common/icon_document_pdf-02.svg);
+      }
+    }
+  }
+}
+
+.c-btn-list__itm__cnt {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translate(0, -50%);
+}
+
+//↓↓↓ main2カラム時のボタン3カラム
+.l-main.r-type02 {
+  .c-btn-list.r-3col {
+    .c-btn-list__itm {
+      @include pc {
+        width: 242px;
+        margin-right: 24px;
+
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// base
+// TODO： mainが1カラムと2カラムの時で幅が変わる問題
+.c-btn-list {
+
+  @include pc {
+  }
+
+  @include sp {
+  }
+
+  &__itm {
+    @include pc {
+    }
+
+    @include sp {
+    }
+  }
+
+  &__itm__link {
+
+  }
+
+  // TODO： 通常の item__link を上書きしてしまっているのでいずれリファクタ
+  // 通常を r-arrow など...？
+  &__itm__link.r-document__pdf {
+
+  }
+}
+
+// type1 PC:1column SP:1column
+.c-btn-list.r-type01 {
+  .c-btn-list__itm {
+    @include pc {
+      width: 100%;
+
+      &:nth-of-type(1) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type2 PC:2column SP:1column
+.c-btn-list.r-type02 {
+  .c-btn-list__itm {
+    @include pc {
+      width: calc((100% - 3.1%) / 2);
+      margin-right: 3.1%;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type3 PC:3column SP:1column
+.c-btn-list.r-type03 {
+  .c-btn-list__itm {
+    @include pc {
+      width: calc((100% - 3.1% * 2 - 1px) / 3);
+      margin-right: 3.1%;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// type4 PC:3column SP:2column
+// TODO： SP時の2カラムを作るために無理矢理type3を複製
+// educationのseniorで実現するために作成しているのでリファクタ必要
+.c-btn-list.r-type04 {
+  .c-btn-list__itm {
+    @include pc {
+      width: calc((100% - 3.1%*2) / 3);
+      margin-right: 3.1%;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// TODO： ただのcenter寄せじゃダメ？
+// center1 1/2の大きさの中央寄せ
+.c-btn-list.r-center01 {
+  .c-btn-list__itm {
+    @include pc {
+      width: calc((100% - 3.1%) / 2);
+      margin: 0 auto;
+    }
+  }
+}
+
+//　中央寄せ
+.c-btn-list.r-center {
+  .c-btn-list__itm {
+    @include pc {
+      margin: 0 auto;
+    }
+  }
+}
+
+// TODO： education > information > メディアライブラリー
+// のために作った無理やりフォントスモール
+.c-btn-list.r-txt-small {
+  @include pc {
+    font-size: 12px;
+  }
+}
+
+// center2 メインが1カラムの時の小ボタン用のスタイル
+// TODO： center3など乱立してるのでリファクタ必要
+.c-btn-list.r-center02 {
+  .c-btn-list__itm {
+    @include pc {
+      width: 23.26%;
+      margin: 0 auto;
+    }
+  }
+}
+
+// center3 メインが1カラムの時小ボタン用のスタイル
+.c-btn-list.r-center03 {
+  .c-btn-list__itm {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin: 0 auto;
+    }
+  }
+}
+
+// TODO： educationのseniorで実現するために作成しているのでリファクタ必要
+.c-btn-list.r-type04 {
+  .c-btn-list__itm {
+    @include sp {
+      width: calc((100% - 3.1%) / 2);
+      margin-right: 3.1%;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// 1line text（ボタン内のテキストが1行）
+.c-btn-list.r-1line {
+  .c-btn-list__itm {
+    @include pc {
+
+    }
+  }
+}
+
+// 2line text（ボタン内のテキストが2行）
+.c-btn-list.r-2line {
+  .c-btn-list__itm {
+  }
+}
+
+// 白バージョン
+.c-btn-list.r-white {
+  .c-btn-list__itm__link {
+    color: #fff;
+    border: 1px solid #fff;
+
+    &::before {
+      border-color: #fff;
+    }
+    @include pc {
+      &::after {
+        background-color: #fff;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #333;
+
+        &::before {
+          border-color: #333;
+        }
+
+        .c-btn-list__external__icon {
+          &::before,
+          &::after {
+            border-color: #333;
+          }
+        }
+      }
+    }
+
+    &[target='_blank'] {
+      .c-btn-list__external__icon {
+        &::before {
+          border-color: #fff;
+        }
+
+        &::after {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// 黒バージョン
+.c-btn-list.r-black {
+  .c-btn-list__itm__link {
+    color: #333;
+    border: 1px solid #333;
+
+    &::before {
+      border-color: #333;
+    }
+    @include pc {
+      &::after {
+        background-color: #333;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #fff;
+
+        &::before {
+          border-color: #fff;
+        }
+
+        .c-btn-list__external__icon {
+          &::before,
+          &::after {
+            border-color: #fff;
+          }
+        }
+      }
+    }
+
+    &[target='_blank'] {
+      .c-btn-list__external__icon {
+        &::before {
+          border-color: #333;
+        }
+
+        &::after {
+          border-color: #333;
+        }
+      }
+    }
+  }
+}
+
+// 赤バージョン
+.c-btn-list.r-emphasis {
+  .c-btn-list__itm__link {
+    color: #fff;
+    border: 1px solid $clr-kp-red;
+    background-color: $clr-kp-red;
+
+    &::before {
+      border-color: #fff;
+    }
+    @include pc {
+      &::after {
+        background-color: #fff;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $clr-kp-red;
+
+        &::before {
+          border-color: $clr-kp-red;
+        }
+
+        .c-btn-list__external__icon {
+          &::before,
+          &::after {
+            border-color: #fff;
+          }
+        }
+      }
+    }
+
+    &[target='_blank'] {
+      .c-btn-list__external__icon {
+        &::before {
+          border-color: $clr-kp-red;
+        }
+
+        &::after {
+          border-color: $clr-kp-red;
+        }
+      }
+    }
+  }
+}
+
+// disabledバージョン
+.c-btn-list.is-disabled {
+  .c-btn-list__itm__link {
+    color: #fff;
+    border: 1px solid #aaa;
+    background-color: #aaa;
+    pointer-events: none;
+
+    &::before {
+      border-color: #fff;
+    }
+    @include pc {
+      &::after {
+        background-color: #fff;
+      }
+    }
+
+    &[target='_blank'] {
+      .c-btn-list__external__icon {
+        &::before {
+          border-color: #aaa;
+        }
+
+        &::after {
+          border-color: #aaa;
+        }
+      }
+    }
+  }
+}

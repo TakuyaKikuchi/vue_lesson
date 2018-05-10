@@ -1,0 +1,515 @@
+//↓↓↓ フッター
+.l-footer {
+  border-top: 1px solid $clr-middlegray;
+  background-color: $clr-off-white;
+
+  @include pc {
+    margin-top: 125px;
+  }
+
+  .l-footer__main__inner {
+    @include pc {
+      position: relative;
+      width: 1040px;
+      margin: 0 auto;
+      padding-top: 198px;
+    }
+  }
+
+  .l-footer__search {
+    @include pc {
+      position: absolute;
+      top: 84px;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  .l-footer__search__input {
+    appearance: none;
+
+    @include pc {
+      width: 331px;
+      height: 40px;
+      padding-left: 30px;
+      color: #b8b8b8;
+      font-size: $fs-xs-pc;
+      border: none;
+      border-radius: 20px;
+      background-color: $clr-white;
+    }
+  }
+
+  .l-footer__search__btn {
+    appearance: none;
+
+    @include pc {
+      position: absolute;
+      top: 12px;
+      right: 30px;
+      z-index: 2;
+      width: 17px;
+      height: 15px;
+      border: none;
+      background-image: url(/assets/img/common/ico_search-01.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .l-footer-btn-list {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 84px;
+    right: 0;
+    z-index: 1;
+
+    .l-footer-btn-list__itm {
+      font-weight: bold;
+      line-height: $lh-xs;
+
+      @include pc {
+        width: 242px;
+        height: 40px;
+        margin-left: 24px;
+      }
+
+      @include sp {
+        @include vw(height, 82);
+      }
+    }
+
+    .l-footer-btn-list__itm__link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      color: $clr-kp-red;
+      text-decoration: none;
+      border: 1px solid $clr-kp-red;
+      border-radius: 100px;
+
+      @include pc {
+        font-size: $fs-s-pc;
+        transition: color .65s ease;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -200%;
+          z-index: 0;
+          width: 150%;
+          height: 450%;
+          border-radius: 50%;
+          background-color: $clr-kp-red;
+          transition: top .65s ease, left .65s ease;
+        }
+      }
+
+      .l-footer-btn-list__itm__cnt {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 1;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  .l-footer-btn-list__itm__link[target="_blank"] {
+    @include pc {
+      .l-footer-btn-list__itm__cnt {
+        position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          z-index: 1;
+          width: 8px;
+          height: 8px;
+          transition: border-color .4s ease;
+        }
+
+        &::before {
+          right: 23px;
+          margin-top: -1px;
+          border-left: 1px solid $clr-kp-red;
+          border-bottom: 1px solid $clr-kp-red;
+        }
+
+        &::after {
+          right: 21px;
+          margin-top: -4px;
+          border: 1px solid $clr-kp-red;
+        }
+      }
+    }
+  }
+
+  .l-footer-btn-list__itm__link:hover {
+    @include pc {
+      color: $clr-white;
+      transition: color .5s ease .08s;
+
+      &::before {
+        border-color: $clr-white;
+        transition: border-color .4s ease .185s;
+      }
+
+      &::after {
+        top: -100%;
+        left: -20%;
+      }
+
+      .l-footer-btn-list__itm__cnt {
+        &::before,
+        &::after {
+          border-color: $clr-white;
+          transition: border-color .4s ease .185s;
+        }
+      }
+    }
+  }
+
+  .l-funav__list {
+    @include pc {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 80px;
+      margin-bottom: 46px;
+      border-left: 1px solid $clr-gray;
+
+      .l-funav__list__itm {
+        width: 16.66%;
+        border-right: 1px solid $clr-gray;
+      }
+
+      .l-funav__list__itm__link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-decoration: none;
+        line-height: $lh-xs;
+        font-weight: bold;
+        font-size: $fs-xs-pc;
+        background-repeat: no-repeat;
+        background-position-x: center;
+
+        &.r-1line {
+          padding-top: 50px;
+        }
+
+        &.r-2line {
+          padding-top: 44px;
+        }
+
+        &.r-contact {
+          background-image: url(/assets/img/common/ico_footer_contact-01.svg);
+          background-position-y: 10px;
+          background-size: 30px 22px;
+        }
+
+        &.r-ir-doc {
+          background-image: url(/assets/img/common/ico_footer_ir-doc-01.svg);
+          background-position-y: 3px;
+          background-size: 29px 24px;
+        }
+
+        &.r-settle-brief {
+          background-image: url(/assets/img/common/ico_footer_settle-brief-01.svg);
+          background-position-y: 0;
+          background-size: 28px 34px;
+        }
+
+        &.r-annual {
+          background-image: url(/assets/img/common/ico_footer_annual-01.svg);
+          background-position-y: 0;
+          background-size: 33px 33px;
+        }
+
+        &.r-financial {
+          background-image: url(/assets/img/common/ico_footer_financial-01.svg);
+          background-position-y: 0;
+          background-size: 43px 24px;
+        }
+
+        &.r-social-environment {
+          background-image: url(/assets/img/common/ico_footer_social-environment-01.svg);
+          background-position-y: 0;
+          background-size: 28px 34px;
+        }
+      }
+    }
+  }
+
+  .l-fnav {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include pc {
+      width: 100%;
+      padding: 28px 0;
+      // TODO： カラー、変数化する？
+      border-top: 1px solid #c2c2c2;
+    }
+
+    .l-fnav__itm {
+      @include pc {
+        width: 154px;
+        margin-left: 23px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .l-fnav__list {}
+    .l-fnav__list__itm {}
+
+    .l-fnav__list__itm__link {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      line-height: $lh-xs;
+
+      @include pc {
+        // TODO： font-margin（or padding）を変数対応
+        // TODO： margin変数（関数？）に変更する
+        @include font-padding(13, 13 * $lh-xs, 13);
+        padding-left: 0.8em;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          z-index: 1;
+          width: .3em;
+          height: .3em;
+          margin-top: -.15em;
+          border-right: 1px solid $clr-txt;
+          border-bottom: 1px solid $clr-txt;
+          transform: rotate(-45deg);
+        }
+
+        &:hover {
+          color: $clr-kp-red;
+
+          &::before {
+            border-color: $clr-kp-red;
+          }
+        }
+      }
+    }
+
+    .l-fnav__list__sublist {
+      @include pc {
+        display: none;
+      }
+    }
+  }
+
+  .l-fnav__history {
+    position: absolute;
+
+    @include pc {
+      right: 0;
+      bottom: 36px;
+
+      .l-fnav__history__link {
+        //TODO： hoverの秒数、透過度を変数化するか？
+        transition: opacity .2s ease;
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .l-footer__sub {
+    background-color: $clr-white;
+
+    .l-footer__sub__inner {
+      position: relative;
+
+      @include pc {
+        width: 1040px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .l-fsnav {
+    position: relative;
+  }
+
+  .l-fsnav__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する
+      @include font-padding(13, 13 * 1.3, 40);
+    }
+  }
+
+  .l-fsnav__list__itm {
+    border-left: 1px solid #7d7d7d;
+
+    @include pc {
+      &:first-child {
+        border-left: none;
+
+        .l-fsnav__list__itm__link {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .l-fsnav__list__itm__link {
+    display: block;
+
+    @include pc {
+      padding-right: 15px;
+      padding-left: 16px;
+    }
+  }
+
+  .l-footer__logo {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    z-index: 1;
+
+    .l-footer__logo__link {
+      display: block;
+    }
+
+    .l-footer__logo__img {
+      @include pc {
+        width: 126px;
+        height: 48px;
+      }
+    }
+  }
+}
+
+
+.l-footer {
+  @include sp {
+    @include vw(margin-top, 150);
+  }
+  &__main {
+    @include pc{
+    }
+    @include sp {
+      @include he-vw(1040);
+      background: url(/assets/img/layout/footer/footer_d_sp.jpg) no-repeat center top;
+      background-size:  100% auto;
+    }
+  }
+  &__sub {
+    @include pc{
+    }
+    @include sp {
+    }
+  }
+  &__copy {
+    text-align: center;
+    color: $clr-white;
+    background-color: #e81b2d;
+    @include pc{
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+    }
+    @include sp {
+      @include vw(height,62);
+      @include font-vw(16);
+      @include vw(line-height,62);
+    }
+  }
+}
+
+.l-pagetop {
+  >a {
+    display: block;
+    position: absolute;
+    border: 1px solid #e40018;
+    z-index: 999;
+    @include pc {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      right: 20px;
+      bottom: 53px;
+      transition: opacity .3s;
+    }
+    @include sp {
+      @include wd-vw(60);
+      @include he-vw(60);
+      border-radius: 100%;
+      @include vw(right, 40);
+      @include vw(bottom, 106);
+    }
+    &:hover {
+      @include pc {
+        opacity: .6;
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      border-right: 1px solid #e40018;
+      border-top: 1px solid #e40018;
+      transform: rotate(-45deg);
+      @include pc {
+        width: 7px;
+        height: 7px;
+        right: 15px;
+        bottom: 14px;
+      }
+      @include sp {
+        @include wd-vw(12);
+        @include he-vw(12);
+        @include vw(right, 20);
+        @include vw(bottom, 16);
+      }
+    }
+  }
+  &.is-fixed {
+    transition: opacity .3s;
+    >a {
+      position: fixed;
+      @include pc {
+        bottom: 20px;
+      }
+      @include sp {
+        @include vw(bottom, 40);
+      }
+    }
+    &.is-moving {
+      @include sp {
+        opacity: 0
+      }
+    }
+  }
+}

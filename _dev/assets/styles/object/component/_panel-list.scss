@@ -1,0 +1,837 @@
+//↓↓↓ パネルリスト共通
+[class*="c-pnl-list"] {
+  display: flex;
+  flex-wrap: wrap;
+
+  .c-pnl-list__itm {
+    position: relative;
+    z-index: 1;
+  }
+
+  .c-pnl-list__itm__link {
+    display: block;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-decoration: none;
+    line-height: 0;
+
+    @include pc {
+      //TODO： hoverの秒数、透過度を変数化するか？
+      transition: opacity .2s;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .c-pnl-list__itm__ttl {
+      color: $clr-kp-red;
+      text-indent: 1.5em;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background-color: $clr-kp-red;
+
+        @include pc {
+          top: .33em;
+        }
+
+        @include sp {
+          top: .35em;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: .7em;
+        z-index: 2;
+        width: .3em;
+        height: .3em;
+        border-right: 1px solid $clr-white;
+        border-bottom: 1px solid $clr-white;
+        transform: rotate(-45deg);
+
+        @include pc {
+          left: .3em;
+        }
+
+        @include sp {
+          left: .28em;
+        }
+      }
+    }
+  }
+
+  .c-pnl-list__itm__ttl {
+    display: block;
+    position: relative;
+    font-weight: bold;
+
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-with-tb(17, 17 * $lh-s, 20);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-with-tb(32, 32 * $lh-s, 30);
+    }
+  }
+
+  .c-pnl-list__itm__txt {
+    @include pc {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-with-tb(15, 15 * $lh-s, 15);
+    }
+
+    @include sp {
+      // TODO： font-margin（or padding）を変数対応
+      // TODO： margin変数（関数？）に変更する（paddingも？）
+      @include font-margin-with-tb(28, 28 * $lh-s, 30);
+    }
+  }
+
+  .c-pnl-list__itm__img__frm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:1;
+    width: 100%;
+    border: 1px solid $clr-middlegray;
+
+    &.r-no-bdr {
+      border: none;
+    }
+  }
+
+  .c-pnl-list__itm__img {
+    width: 100%;
+  }
+}
+
+//↓↓↓ 3columnの指定
+//--- 3column共通
+.c-pnl-list.r-3col {
+  .c-pnl-list__itm {
+    line-height: $lh-s;
+    &:nth-of-type(3n) { margin-right: 0 !important; }
+    &:nth-of-type(-n + 3) { margin-top: 0 !important; }
+  }
+
+  &--pc {
+    @include pc {
+      .c-pnl-list__itm {
+        line-height: $lh-s;
+        &:nth-of-type(3n) { margin-right: 0 !important; }
+        &:nth-of-type(-n + 3) { margin-top: 0 !important; }
+      }
+    }
+  }
+
+  &--sp {
+    @include sp {
+      .c-pnl-list__itm {
+        line-height: $lh-s;
+        &:nth-of-type(3n) { margin-right: 0 !important; }
+        &:nth-of-type(-n + 3) { margin-top: 0 !important; }
+      }
+    }
+  }
+}
+
+//--- mainが2column時の3column
+.l-main.r-type02 {
+  .c-pnl-list.r-3col {
+    .c-pnl-list__itm {
+      @include pc {
+        width: 242px;
+        margin-top: 50px;
+        margin-right: 24px;
+      }
+
+      @include sp {
+
+      }
+
+      .c-pnl-list__itm__link {
+        @include pc {
+          padding-top: 191px;
+        }
+
+        @include sp {
+
+        }
+      }
+
+      .c-pnl-list__itm__img__frm {
+        @include pc {
+          height: 191px;
+        }
+
+        @include sp {
+
+        }
+      }
+    }
+
+    &--pc {
+      @include pc {
+        .c-pnl-list__itm {
+          width: 242px;
+          margin-top: 50px;
+          margin-right: 24px;
+        }
+
+        .c-pnl-list__itm__link {
+          padding-top: 191px;
+        }
+
+        .c-pnl-list__itm__img__frm {
+          height: 191px;
+        }
+      }
+    }
+
+    &--sp {
+      @include sp {
+        .c-pnl-list__itm {
+
+        }
+
+        .c-pnl-list__itm__link {
+        }
+
+        .c-pnl-list__itm__img__frm {
+        }
+      }
+    }
+  }
+}
+
+//↓↓↓ 1columnの指定
+//--- 1column共通
+.c-pnl-list.r-1col {
+  .c-pnl-list__itm {
+    line-height: $lh-s;
+    width: 100%;
+
+    @include sp {
+      &:nth-of-type(1) {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  &--pc {
+    @include pc {
+      .c-pnl-list__itm {
+        line-height: $lh-s;
+        width: 100%;
+      }
+    }
+  }
+
+  &--sp {
+    @include sp {
+      .c-pnl-list__itm {
+        line-height: $lh-s;
+        width: 100%;
+
+        &:nth-of-type(1) {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+//--- mainが2column時の1column
+.l-main.r-type02 {
+  .c-pnl-list.r-1col {
+    .c-pnl-list__itm {
+      @include pc {
+      }
+
+      @include sp {
+        @include vw(margin-top, 80);
+      }
+
+      .c-pnl-list__itm__link {
+        @include pc {
+          padding-top: 191px;
+        }
+
+        @include sp {
+          @include vw(padding-top, 529);
+        }
+      }
+
+      .c-pnl-list__itm__img__frm {
+        @include pc {
+          height: 191px;
+        }
+
+        @include sp {
+          @include vw(height, 529);
+        }
+      }
+    }
+
+    &--pc {
+      @include pc {
+        .c-pnl-list__itm {
+        }
+
+        .c-pnl-list__itm__link {
+          padding-top: 191px;
+        }
+
+        .c-pnl-list__itm__img__frm {
+          height: 191px;
+        }
+      }
+    }
+
+    &--sp {
+      @include sp {
+        .c-pnl-list__itm {
+          @include vw(margin-top, 80);
+        }
+
+        .c-pnl-list__itm__link {
+          @include vw(padding-top, 529);
+        }
+
+        .c-pnl-list__itm__img__frm {
+          @include vw(height, 529);
+        }
+      }
+    }
+  }
+}
+
+// base
+.c-panel-list {
+
+  &__item {
+  }
+
+  &__item__link {
+    @include pc {
+      &:hover,
+      &:active,
+      &:focus {
+        .c-panel-list__item__img {
+          @include pc {
+            transform: scale(1.15) translate(-1%);
+          }
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+    }
+
+    &::before {
+      border-right: 1px solid #e40015;
+      border-bottom: 1px solid #e40015;
+      transform: rotate(-45deg);
+
+      @include pc {
+        width: 6px;
+        height: 6px;
+      }
+
+      @include sp {
+        @include vw(bottom, 38);
+        @include vw(left, 42);
+        @include vw(width, 6);
+        @include vw(height, 6);
+      }
+    }
+
+    &::after {
+      background-color: #e40015;
+
+      @include pc {
+        width: 12px;
+        height: 1px;
+      }
+
+      @include sp {
+        @include vw(bottom, 41);
+        @include vw(left, 37);
+        @include vw(width, 12);
+        @include vw(height, 1);
+      }
+    }
+  }
+
+  &__item__link__inner {
+    display: block;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      border: 1px solid #e40015;
+      border-radius: 50%;
+
+      @include pc {
+        width: 37px;
+        height: 37px;
+      }
+
+      @include sp {
+        @include vw(bottom, 21);
+        @include vw(left, 24);
+        @include vw(width, 37);
+        @include vw(height, 37);
+      }
+    }
+  }
+
+  &__item__title {
+    position: absolute;
+    z-index: 1;
+
+    @include pc {
+      font-size: 18px;
+    }
+  }
+
+  &__item__img {
+    width: 100%;
+    height: auto;
+
+    @include pc {
+      transition: transform .4s ease;
+    }
+  }
+}
+
+// type2 mainが2column時の3column
+.c-panel-list.r-type01 {
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 36px;
+        left: 38px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 39px;
+        left: 33px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 20px;
+          left: 20px;
+          width: 37px;
+          height: 37px;
+        }
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    @include pc {
+      top: 48px;
+      left: 20px;
+    }
+  }
+}
+
+// type2 mainが2column時の2column
+.c-panel-list.r-type02 {
+  .c-panel-list__item {
+    @include pc {
+      width: calc((100% - 24px) / 2);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    @include pc {
+      top: 50%;
+      left: 40px;
+      line-height: 1.77;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 46px;
+        left: 58px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 49px;
+        left: 53px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 30px;
+          left: 40px;
+        }
+      }
+    }
+  }
+}
+
+// type3 mainが1column時の3column
+.c-panel-list.r-type03 {
+  .c-panel-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    line-height: 1.66;
+
+    @include pc {
+      top: 80px;
+      left: 20px;
+    }
+  }
+
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 36px;
+        left: 38px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 39px;
+        left: 33px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 20px;
+          left: 20px;
+          width: 37px;
+          height: 37px;
+        }
+      }
+    }
+  }
+
+  .c-panel-list__item__txt {
+    @include pc {
+      margin-top: 20px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 18);
+      @include vw(padding-bottom, 24);
+    }
+  }
+}
+
+// type4 mainが1column時の3column
+// TODO： リファクタ、ほぼtype03の複製、マージンくらいの違い
+.c-panel-list.r-type04 {
+  .c-panel-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 66px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    line-height: 1.66;
+
+    @include pc {
+      top: 80px;
+      left: 20px;
+    }
+
+    @include sp {
+      line-height: 1.5;
+    }
+  }
+
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 36px;
+        left: 38px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 39px;
+        left: 33px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 20px;
+          left: 20px;
+          width: 37px;
+          height: 37px;
+        }
+      }
+    }
+  }
+
+  .c-panel-list__item__txt {
+    @include pc {
+      margin-top: 20px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 18);
+      @include vw(padding-bottom, 24);
+    }
+  }
+}
+
+// type5 mainが1column時の4column
+.c-panel-list.r-type05 {
+  .c-panel-list__item {
+    @include pc {
+      width: calc((100% - 24px * 3) / 4);
+      margin-top: 24px;
+      margin-right: 24px;
+
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 4) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    line-height: 1.66;
+
+    @include pc {
+      top: 35px;
+      left: 20px;
+    }
+  }
+
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 36px;
+        left: 38px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 39px;
+        left: 33px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 20px;
+          left: 20px;
+          width: 37px;
+          height: 37px;
+        }
+      }
+    }
+  }
+
+  .c-panel-list__item__txt {
+    @include pc {
+      margin-top: 20px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 18);
+      @include vw(padding-bottom, 24);
+    }
+  }
+}
+
+// SP時は全て2column
+.c-panel-list {
+  &__item {
+    @include sp {
+      width: 48%;
+      @include vw(margin-top, 26);
+      margin-right: 4%;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+
+    &__title {
+      @include sp {
+        @include vw(top, 62);
+        @include vw(left, 23);
+        @include vw(font-size, 26);
+      }
+    }
+  }
+}
+
+// type6 mainが1column時の3columnでSPをColumn
+// TODO： 比較テスト用、後で必ず消す
+.c-panel-list.r-type06 {
+  .c-panel-list__item {
+    @include pc {
+      width: calc((100% - 24px * 2) / 3);
+      margin-top: 66px;
+      margin-right: 24px;
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        margin-top: 0;
+      }
+    }
+
+    @include sp {
+      width: 100%;
+      @include vw(margin-top, 26);
+      margin-right: 0;
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(-n + 2) {
+        @include vw(margin-top, 26);
+      }
+    }
+  }
+
+  .c-panel-list__item__title {
+    @include pc {
+      top: 80px;
+      left: 20px;
+      line-height: 1.66;
+    }
+
+    @include sp {
+      @include vw(top, 80);
+      @include vw(left, 30);
+      @include vw(font-size, 35);
+    }
+
+    @include sp {
+      line-height: 1.5;
+    }
+  }
+
+  .c-panel-list__item__link {
+    &::before {
+      @include pc {
+        bottom: 36px;
+        left: 38px;
+      }
+    }
+
+    &::after {
+      @include pc {
+        bottom: 39px;
+        left: 33px;
+      }
+    }
+
+    &__inner {
+      &::after {
+        @include pc {
+          bottom: 20px;
+          left: 20px;
+          width: 37px;
+          height: 37px;
+        }
+      }
+    }
+  }
+
+  .c-panel-list__item__txt {
+    @include pc {
+      margin-top: 20px;
+    }
+
+    @include sp {
+      @include vw(margin-top, 18);
+      @include vw(padding-bottom, 24);
+    }
+  }
+}

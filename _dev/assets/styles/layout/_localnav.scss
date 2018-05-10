@@ -1,0 +1,208 @@
+.l-lnav {
+  border-top: 1px solid #e4002b;
+  border-bottom: 1px solid #e4002b;
+
+  &__item {
+    @include pc {
+      border-bottom: 1px solid #ededed;
+    }
+    @include sp {
+      border-bottom: 1px solid #dcdcdc;
+    }
+  }
+
+  &__sublist {
+    overflow: hidden;
+    height: 0;
+    transition: opacity .3s;
+    opacity: 0;
+    [aria-expanded="true"] + & {
+      height: auto;
+      opacity: 1;
+    }
+  }
+
+  &__item__link,
+  &__sublist__item__link {
+    display: block;
+    position: relative;
+    line-height: $lh-xs;
+
+    @include pc {
+      padding-right: 40px;
+
+      // TODO： font-margin（or padding）を変数対応
+      @include font-padding(15, 15 * $lh-xs, 20);
+    }
+
+    @include sp {
+      @include vw(padding-right, 40);
+      @include vw(padding-left, 40);
+
+      // TODO： font-margin（or padding）を変数対応
+      @include font-padding(26, 26 * $lh-xs, 40);
+    }
+
+    &.is-current {
+      text-decoration: none;
+      background-color: #f2f2f2;
+    }
+
+    @include pc {
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+        background-color: #f2f2f2;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      border-right: 1px solid #e4002b;
+      border-bottom: 1px solid #e4002b;
+      transform: rotate(-45deg) translate3d(0, 0, 0);
+
+      @include pc {
+        right: 20px;
+        width: 5px;
+        height: 5px;
+        margin-top: -3px;
+      }
+
+      @include sp {
+        @include vw(right, 40);
+        @include vw(width, 10);
+        @include vw(height, 10);
+        min-width: 5px;
+        min-height: 5px;
+        @include vw(margin-top, -5);
+        @include vw(border-width, 2);
+      }
+    }
+
+    &__txt {
+      display: block;
+    }
+  }
+
+  &__item.role-has-sublist {
+    position: relative;
+
+    .l-lnav__item__link {
+      &::after {
+        display: none;
+      }
+    }
+
+    span[role=button] {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      cursor: pointer;
+
+      @include pc {
+        width: 43px;
+        height: 54px;
+      }
+
+      @include sp {
+        @include vw(width, 86);
+        @include vw(height, 104);
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        background-color: #e4002b;
+        @include pc {
+          transition: all .2s;
+        }
+      }
+
+      &::before {
+        @include pc {
+          width: 9px;
+          height: 1px;
+          margin-left: -4px;
+        }
+
+        @include sp {
+          @include vw(right, 13);
+          @include vw(width, 16);
+          min-width: 8px;
+          min-height: 1px;
+          @include vw(height, 2);
+          @include vw(margin-left, -7);
+        }
+      }
+
+      &:not([aria-expanded="true"]) {
+        &::after {
+          @include pc {
+            right: 10px;
+            width: 1px;
+            height: 9px;
+            margin-top: -4px;
+          }
+
+          @include sp {
+            @include vw(right, 20);
+            @include vw(width, 2);
+            @include vw(height, 16);
+            min-width: 1px;
+            min-height: 8px;
+            @include vw(margin-top, -7);
+          }
+        }
+      }
+    }
+  }
+
+  &__item__link {
+    @include pc {
+      padding-left: 24px;
+    }
+  }
+
+  &__sublist__item__link {
+    @include pc {
+      padding-left: 44px;
+    }
+    @include sp {
+      background-color: #f2f2f2;
+      border-top: 1px solid #dcdcdc;
+    }
+
+    &__txt {
+      &::after {
+        @include pc {
+          content: '';
+          display: block;
+          position: absolute;
+          // top: 50%;
+          top: 20px;
+          left: 24px;
+          z-index: 1;
+          width: 9px;
+          height: 5px;
+          // margin-top: -3px;
+          border-left: 1px solid #e4002b;
+          border-bottom: 1px solid #e4002b;
+          // transform: translate(0, -50%);
+        }
+      }
+    }
+  }
+}

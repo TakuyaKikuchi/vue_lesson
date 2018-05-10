@@ -1,0 +1,121 @@
+// TODO: 全体的に悩み中!!!!!!!!!!!!!!!!!
+
+/*
+---
+name: .c-nav-list - リストナビゲーション
+menu: コンポーネント/ナビゲーション/リスト
+category: component/navigation/list
+tag:
+- component
+- navigation
+- list
+---
+
+```html
+<ul class="c-nav-list r-type01">
+  <li class="c-nav-list__item role-anchor"><a href="#tab01-sec01" class="c-nav-list__item__link">支店・営業所</a></li><li class="c-nav-list__item role-anchor"><a href="#tab01-sec02" class="c-nav-list__item__link">工場</a></li><li class="c-nav-list__item role-anchor"><a href="#tab01-sec03" class="c-nav-list__item__link">その他</a></li>
+</ul>
+```
+
+- アンカーリンク用のナビゲーションモジュールです
+- アンカーリンク用のスタイルは`.role-anchor`に設定されています
+
+*/
+
+
+.c-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include pc {
+    margin-bottom: 15px;
+  }
+
+  @include sp {
+    @include vw(margin-top, 70);
+    @include vw(margin-bottom, 60);
+  }
+
+  &__item {
+    @include pc {
+      @include font-margin-bottom(16, 25, 30);
+    }
+    @include sp {
+      @include font-margin(30, 48, 30);
+    }
+
+    &__link {
+      display: inline-block;
+      position: relative;
+
+      @include pc {
+        padding-right: 20px;
+      }
+
+      @include sp {
+        @include vw(padding-right, 20);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        border-right: 1px solid #e4002b;
+        border-bottom: 1px solid #e4002b;
+        transform: translate(0, -50%) rotate(45deg);
+        right: 0;
+
+        @include pc {
+          width: 4px;
+          height: 4px;
+        }
+
+        @include sp {
+          @include vw(width, 8);
+          @include vw(height, 8);
+          @include vw(border-width, 2);
+        }
+      }
+    }
+  }
+
+  &.r-type01 {
+    .c-nav-list__item {
+      @include pc {
+        margin-right: 80px;
+      }
+      @include sp {
+        @include vw(padding-right, 80);
+      }
+    }
+  }
+  &.r-type02 {
+    @include pc {
+      margin-right: -80px;
+    }
+    @include sp {
+      @include vw(margin-right, -80);
+    }
+    .c-nav-list__item {
+      @include pc {
+        min-width: 150px;
+        padding-right: 40px;
+      }
+      @include sp {
+        @include vw(padding-right, 60);
+      }
+    }
+  }
+  &.r-type03 {
+    .c-nav-list__item {
+      @include pc {
+        margin-right: 50px;
+      }
+      @include sp {
+        @include vw(padding-right, 80);
+      }
+    }
+  }
+}

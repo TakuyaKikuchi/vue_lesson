@@ -1,0 +1,82 @@
+// Replace letters
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+//
+// Encode symbols ( IE 11 fix )
+@function url-encode($string) {
+  $map: (
+      "<": "%3C",
+      ">": "%3E",
+      '"': "%22",
+      "#": "%23",
+  );
+  $new: $string;
+  @each $search, $replace in $map {
+      $new: str-replace($new, $search, $replace);
+  }
+  @return $new;
+}
+
+// Format the SVG as a URL
+@function inline-svg($string) {
+  @return url('data:image/svg+xml,#{url-encode($string)}');
+}
+
+@function get-svg-icon($name: null, $fill: null){
+  $svg: null !default;
+
+  // 右向きアロー（小） /assets/img/icon/icon_right.svg
+  @if $name == arrow-r01{
+    @if $fill == null { $fill: #aaa; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="7.67" height="12.93" viewBox="0 0 7.67 12.93"><path d="M1009.01,1643.83l7-6.51-1.01-.91-7.01,6.51Zm7-6.51-7-6.51-1.02.92,7.01,6.51Z" fill="#{$fill}" transform="translate(-1008 -1630.81)"/></svg>';
+  }
+
+  // 左向きアロー（小）
+  @if $name == arrow-l01{
+    @if $fill == null { $fill: #aaa; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="7.67" height="12.93" viewBox="0 0 7.67 12.93"><path class="st0" d="M7,0L0,6.5l1,0.9l7-6.5L7,0z M0,6.5L7,13l1-0.9L1,5.6L0,6.5z" fill="#{$fill}"/></svg>';
+  }
+
+  // 下向きアロー /assets/img/icon/icon_bottom.svg
+  @if $name == arrow-b01{
+    @if $fill == null { $fill: #aaa; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="31" height="19" viewBox="0 0 31 19"><path id="icon_bottom.svg" class="cls-1" d="M710.011,16963.4l-15.5,16.6-2.186-2.4,15.508-16.6Zm-15.5,16.6L679,16963.4l2.185-2.4,15.5,16.6Z" fill="#{$fill}" transform="translate(-679 -16961)"/></svg>';
+  }
+
+  // 上向きアロー /assets/img/icon/icon_top.svg
+  @if $name == arrow-t01{
+    @if $fill == null { $fill: #aaa; }
+    $svg: '<svg id="3adb6ad4-2b91-44a5-bfdf-1e529d4d9616" xmlns="http://www.w3.org/2000/svg" width="31.01" height="19" viewBox="0 0 31.01 19"><title>icon_bottom</title><polygon points="31.01 16.6 15.5 0 0 16.6 2.18 19 15.51 4.73 28.83 19 31.01 16.6" fill="#{$fill}"/></svg>';
+  }
+
+  // キービジュアル用 右向きアロー /assets/img/icon/kv_arrow_next.svg
+  @if $name == kv-arrow-r01{
+    @if $fill == null { $fill: #f1f1f1; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="18.72" height="31.188" viewBox="0 0 18.72 31.188"><path id="_" data-name="&gt;" class="cls-1" d="M1343.22,352.239l16.35,15.6-2.36,2.2-16.35-15.6Zm16.35,15.6-16.35,15.6-2.36-2.2,16.35-15.6Z" fill="#{$fill}" transform="translate(-1340.84 -352.25)"/></svg>';
+  }
+
+  // キービジュアル用 左向きアロー /assets/img/icon/kv_arrow_prev.svg
+  @if $name == kv-arrow-l01{
+    @if $fill == null { $fill: #f1f1f1; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="18.719" height="31.188" viewBox="0 0 18.719 31.188"><path id="_" data-name="&lt;" class="cls-1" d="M55.78,352.239l-16.352,15.6,2.365,2.2,16.352-15.6Zm-16.352,15.6,16.352,15.6,2.364-2.2-16.352-15.6Z" fill="#{$fill}" transform="translate(-39.438 -352.25)"/></svg>';
+  }
+
+  // 外部リンク用アイコン /assets/img/icon/icon_right.svg
+  @if $name == blank-01{
+    @if $fill == null { $fill: #aaa; }
+    $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="221" height="152" viewBox="0 0 221 152"><title>blank</title><polyline points="221 0 28 0 28 21 197 21 197 130 221 130" fill="#{$fill}" fill-rule="evenodd"/><path d="M0,37V152H178V37Zm156,99H23V54H156Z" fill="#{$fill}" fill-rule="evenodd"/></svg>';
+  }
+
+
+  // テンプレ
+  // @if $name == name{
+  //   $svg: '';
+  // }
+
+  @return inline-svg($svg);
+}

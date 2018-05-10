@@ -1,0 +1,454 @@
+/*
+---
+name: .c-tbl - テーブル
+menu: コンポーネント/テーブル
+category: component/table
+tag:
+- component
+- table
+---
+
+## .c-tbl.r-type01 - タイプ1
+
+```html
+<div class="c-table r-type01">
+  <table>
+    <colgroup>
+      <col class="u-wd31per--pc">
+      <col class="u-wd69per--pc">
+    </colgroup>
+    <tbody>
+      <tr>
+        <th class="c-table__head">対象</th>
+        <td class="c-table__data">小学生</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">開催地区</th>
+        <td class="c-table__data">全国（お気軽にご相談ください）</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">開催場所</th>
+        <td class="c-table__data">小学校</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">所要時間</th>
+        <td class="c-table__data">約90分</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">費用</th>
+        <td class="c-table__data">
+          無料（講師の講演料、開催に伴う講師の旅費、交通費などは一切不要です）<br>
+          ※食材などのご準備をお願いいたします。<br>
+          　費用につきましては、一旦お立替いただきますようお願いいたします。<br>
+          　開催当日にお立替いただいた費用をお支払いいたします。
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- /.c-tbl -->
+```
+
+- 左側にhead、右側にdataが並ぶ基本パターンです
+- colgroupにユーティリティクラスで、幅を指定することができます
+
+
+## .c-tbl.r-type02 - タイプ2（要JS）
+
+```html
+
+<div data-module="change-rowtable" class="c-table r-type02">
+  <table>
+    <colgroup>
+      <col class="u-wd31per--pc">
+      <col class="u-wd20per--pc">
+      <col class="u-wd49per--pc">
+    </colgroup>
+    <tr>
+      <th class="c-table__head u-alignC--pc">
+        役　職
+      </th>
+      <th class="c-table__head u-alignC--pc">
+        氏　名
+      </th>
+      <th class="c-table__head u-alignC--pc">
+        担　当
+      </th>
+    </tr>
+    <tr>
+      <td class="c-table__data">取締役会長</td>
+      <td class="c-table__data">◯◯ ◯</td>
+      <td class="c-table__data">コンプライアンスおよびブランド担当</td>
+    </tr>
+    <tr>
+      <td class="c-table__data">代表取締役 社長執行役員</td>
+      <td class="c-table__data">◯◯ ◯</td>
+      <td class="c-table__data">マーケティング本部担当</td>
+    </tr>
+  </table>
+</div>
+<!-- /.c-tbl -->
+```
+
+- 1行目にhead、それ以外がdataのパターンです
+- PCとSPで縦横が並びかわるため、`data-module="change-rowtable"`を指定する必要があります。
+- colgroupにユーティリティクラスで、幅を指定することができます
+
+
+## .c-tbl.r-type03 - タイプ3
+
+```html
+<div class="c-table r-type03">
+  <table>
+    <colgroup>
+      <col class="u-wd31per--pc">
+      <col class="u-wd69per--pc">
+    </colgroup>
+    <tbody>
+      <tr>
+        <th class="c-table__head">対象</th>
+        <td class="c-table__data">小学生</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">開催地区</th>
+        <td class="c-table__data">全国（お気軽にご相談ください）</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">開催場所</th>
+        <td class="c-table__data">小学校</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">所要時間</th>
+        <td class="c-table__data">約90分</td>
+      </tr>
+      <tr>
+        <th class="c-table__head">費用</th>
+        <td class="c-table__data">
+          無料（講師の講演料、開催に伴う講師の旅費、交通費などは一切不要です）<br>
+          ※食材などのご準備をお願いいたします。<br>
+          　費用につきましては、一旦お立替いただきますようお願いいたします。<br>
+          　開催当日にお立替いただいた費用をお支払いいたします。
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- /.c-tbl -->
+```
+
+- 左側にhead、右側にdataが並ぶ基本パターンです
+- colgroupにユーティリティクラスで、幅を指定することができます
+
+
+*/
+
+//↓↓↓ Table共通
+.c-tbl {
+  > table {
+    @include pc {
+      width: 100%;
+      border-top: 1px solid $clr-middlegray;
+    }
+
+    @include sp {
+      .c-tbl__head,
+      .c-tbl__clonehead,
+      .c-tbl__data {
+        @include vw(padding-right, 40);
+        @include vw(padding-left, 40);
+      }
+    }
+  }
+}
+
+.c-tbl:not(.r-type03) {
+  @include sp {
+    .c-tbl__head,
+    .c-tbl__clonehead,
+    .c-tbl__data {
+      display: block;
+    }
+  }
+}
+
+.c-tbl__head,
+.c-tbl__clonehead,
+.c-tbl__data {
+  @include pc {
+    line-height: $lh-s;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    // TODO： font-margin（or padding）を変数対応
+    @include font-padding(15, 15 * $lh-s, 20);
+  }
+}
+
+//↓↓↓ Table TYPE01
+.c-tbl.r-type01 {
+  @include sp {
+    .c-tbl__head,
+    .c-tbl__clonehead,
+    .c-tbl__data {
+      @include vw(padding-right, 20);
+      @include vw(padding-left, 20);
+    }
+
+    .c-tbl__head,
+    .c-tbl__clonehead {
+      line-height: $lh-xs;
+
+      // TODO： font-margin（or padding）を変数対応
+      @include font-padding(28, 28 * $lh-xs, 30);
+    }
+
+    .c-tbl__data {
+      line-height: $lh-s;
+
+      // TODO： font-margin（or padding）を変数対応
+      @include font-padding(28, 28 * $lh-s, 40);
+    }
+  }
+}
+
+
+.c-tbl {
+
+  &__head {
+    text-align: left;
+    border-bottom: 1px solid $clr-middlegray;
+    background-color: #f2f2f2;
+    font-weight: bold;
+    vertical-align: top;
+
+    @include pc {
+      padding-right: 22px;
+      padding-left: 22px;
+      font-weight: normal;
+      border-right: 1px solid $clr-middlegray;
+    }
+
+    @include sp {
+      @include font-padding(26, 40, 40);
+      border-top: 1px solid $clr-middlegray;
+    }
+
+    & + .c-tbl__data {
+      @include sp {
+        // border-top: 1px solid $clr-middlegray;
+      }
+    }
+  }
+
+  tr:first-child {
+    .c-tbl__head:last-child {
+      border-right: none;
+    }
+  }
+
+  &__data {
+    vertical-align: top;
+    @include pc {
+      padding-right: 22px;
+      padding-left: 22px;
+      border-bottom: 1px solid $clr-middlegray;
+      border-right: 1px solid $clr-middlegray;
+    }
+    @include sp {
+      @include font-padding(26, 40, 40);
+    }
+    & + .c-tbl__data,
+    &[colspan] {
+      @include sp {
+        border-top: 1px solid $clr-middlegray;
+      }
+    }
+    &:last-child {
+      @include pc {
+        border-right: 0;
+      }
+    }
+  }
+  &__clonehead {
+    text-align: left;
+    background-color: #f2f2f2;
+    font-weight: bold;
+    border-right: 1px solid $clr-middlegray;
+
+    @include pc{
+      display: none;
+    }
+    @include sp{
+      display: block;
+      position: absolute;
+      @include wd-vw(220);
+      height: 100%;
+      @include vw(padding-right, 20);
+      @include vw(padding-left, 20);
+      @include font-padding(26, 40, 28);
+      left: 0;
+      top: 0;
+      .is-androidlegacy & {
+        position: relative;
+      }
+    }
+  }
+
+  &__caption {
+    @include pc {
+      @include font-padding(12, 36, 20);
+    }
+
+    @include sp {
+      @include font-padding(20, 35.5, 30);
+    }
+  }
+
+  &.r-type01 {
+    @extend %is-fixed;
+
+    @include pc {
+    }
+
+    @include sp {
+    }
+
+    > table {
+      @include sp {
+        width: 100%;
+        border-bottom: 1px solid $clr-middlegray;
+      }
+    }
+  }
+  &.r-type02 {
+    @extend %is-fixed;
+    > table {
+      @include sp{
+        width: 100%;
+      }
+    }
+    tr {
+      @include sp{
+        display: block;
+        @include vw(margin-bottom, 30);
+        border-top: 1px solid $clr-middlegray;
+        border-bottom: 1px solid $clr-middlegray;
+      }
+      &:first-child {
+        @include sp{
+          display: none;
+        }
+      }
+    }
+    @include pc {
+    }
+    .c-tbl__head {
+      @include sp{
+        display: none;
+      }
+    }
+    .c-tbl__data {
+      @include sp{
+        display: block;
+        position: relative;
+        @include vw(padding-left, 240);
+        line-height: 1.55;
+        @include font-padding(26, 40, 28);
+        .is-androidlegacy & {
+          padding: 15px;
+        }
+      }
+      &:empty {
+        @include sp{
+          display: none;
+        }
+      }
+    }
+  }
+  &.r-type03 {
+    @extend %is-fixed;
+
+    @include pc {
+
+    }
+
+    @include sp {
+      position: relative;
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar-track {
+        margin: 0 5px;
+        border-radius: 10px;
+        background: #f5f6f8;
+      }
+    }
+
+    > table {
+      @include sp {
+        width: 128%;
+        border-bottom: 1px solid $clr-middlegray;
+      }
+    }
+    .c-tbl__head,
+    .c-tbl__data {
+      @include sp {
+        border-bottom: 1px solid $clr-middlegray;
+        border-right: 1px solid $clr-middlegray;
+      }
+      &:last-child {
+        @include sp {
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+
+  &--wd {
+    @for $i from 10 through 90 {
+      &#{$i} {
+        @include pc{
+          width: #{$i + %};
+        }
+      }
+    }
+  }
+
+  &.r-type01 {
+    @extend %is-fixed;
+
+    @include pc {
+    }
+
+    @include sp {
+    }
+
+    > table {
+      @include sp {
+        border-bottom: 1px solid $clr-middlegray;
+      }
+    }
+  }
+}
+
+%is-fixed {
+  &.is-fixed {
+    >table {
+      table-layout: fixed;
+    }
+    &--pc{
+      >table{
+        @include pc{
+          table-layout: fixed;
+        }
+      }
+    }
+    &--sp{
+      >table{
+        @include sp{
+          table-layout: fixed;
+        }
+      }
+    }
+  }
+}

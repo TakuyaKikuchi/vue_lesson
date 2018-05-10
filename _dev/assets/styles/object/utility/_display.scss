@@ -1,0 +1,130 @@
+/*
+---
+name: 表示・非表示 / inline属性切り替えクラス
+menu: ユーティリティ/調整用クラス/表示非表示
+category: utility/adjust/display
+tag:
+- utility
+- adjust
+- display
+---
+
+```html
+<div class="u-none">非表示</div>
+<div class="u-none--pc">PCのみ非表示</div>
+<div class="u-none--sp">SPのみ非表示</div>
+<div class="u-block">表示</div>
+<div class="u-block--pc">PCのみ表示</div>
+<div class="u-block--sp">SPのみ表示</div>
+<div class="u-inlineblock">display: inline-block;</div>
+<div class="u-inlineblock--pc">display: inline-block;（PCのみ）</div>
+<div class="u-inlineblock--sp">display: inline-block;（SPのみ）</div>
+
+```
+
+- 個別の幅調整は.u-wd0--pc .u-wd0--sp のユーティリティクラスで調整を行います
+
+*/
+
+.u-none {
+  display: none !important;
+  &--pc {
+    @include pc{
+      display: none !important;
+    }
+  }
+  &--sp {
+    @include sp{
+      display: none !important;
+    }
+  }
+}
+.u-inlineblock {
+  display: inline-block !important;
+  &--pc {
+    @include pc {
+      display: inline-block !important;
+    }
+  }
+  &--sp {
+    @include sp {
+      display: inline-block !important;
+    }
+  }
+}
+.u-block {
+  display: block !important;
+  &--pc {
+    @include pc {
+      display: block !important;
+    }
+  }
+  &--sp {
+    @include sp {
+      display: block !important;
+    }
+  }
+}
+
+/*
+---
+name: レイアウト調整 / Flex属性クラス
+menu: ユーティリティ/調整用クラス/レイアウト調整/flex
+category: utility/adjust/layout/flex
+tag:
+- utility
+- adjust
+- layout
+- flex
+---
+
+```html
+<div class="u-flex--start">justify-content: flex-start; と同等</div>
+<div class="u-flex--center">justify-content: flex-center; と同等</div>
+<div class="u-flex--end">justify-content: flex-end; と同等</div>
+<div class="u-flex--between">justify-content: flex-between; と同等</div>
+<div class="u-flex--arownd">justify-content: flex-arownd; と同等</div>
+<div class="u-flex--vcenter">align-items: center; と同等</div>
+<div class="u-flex--vstart">align-items: start; と同等</div>
+<div class="u-flex--vend">align-items: end; と同等</div>
+
+```
+
+- display: flex; が同時に適用されます。
+
+*/
+
+.u-flex {
+  &--start {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &--center {
+    display: flex;
+    justify-content: center;
+  }
+  &--end {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &--between {
+    display: flex;
+    justify-content: space-between;
+  }
+  &--arownd {
+    display: flex;
+    justify-content: space-around;
+  }
+  &--vcenter {
+    display: flex;
+    align-items: center;
+  }
+  &--vstart {
+    display: flex;
+    align-items: flex-start;
+  }
+  &--vend {
+    display: flex;
+    align-items: flex-end;
+  }
+}
