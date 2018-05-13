@@ -17,18 +17,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+    max-width: 717px;
   }
   &__parts {
+    margin: auto;
     background-size: auto;
     background-repeat: no-repeat;
-    background-position: left center;
-    height: 126px;
+    height: 251px;
+    position: relative;
     &.is-firstname {
       width: 115px;
+      background-position: left center;
       background-image: url("/assets/images/myname/KIKUCHI.png");
     }
     &.is-lastname {
       width: 108px;
+      background-position: left center;
       background-image: url("/assets/images/myname/TAKUYA.png");
     }
   }

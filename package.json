@@ -50,6 +50,9 @@
     "breakpoint-sass": "2.7.1",
     "gsap": "^1.20.3",
     "jquery": "2.2.3",
-    "promise-polyfill": "^7.1.0"
+    "promise-polyfill": "^7.1.0",
+    "vue": "^2.5.16",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^3.0.1"
   }
 }
